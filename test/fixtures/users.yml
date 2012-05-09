@@ -2,8 +2,8 @@
 
 one:
   username: MyString
-  password: MyString
+  password_hash: MyString
 
 two:
   username: MyString
-  password: MyString
+  password_hash: MyString
