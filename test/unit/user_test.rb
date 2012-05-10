@@ -2,14 +2,7 @@ require 'test_helper'
 require 'bcrypt'
 
 class UserTest < ActiveSupport::TestCase
-  # New user
-  test "should not have spaces in name" do
-    @user = User.new
-    @user.username = "Johnathan A Croom"
-    
-    assert_equal "Johnathan-A-Croom", @user.username
-  end
-  
+  # New user  
   test "should not save without username" do
     @user = User.new
     @user.valid?

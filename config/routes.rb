@@ -1,6 +1,7 @@
 Streeetball::Application.routes.draw do
 
   resources :users
+  get "verify/:id" => "users#verify", :as => "verify_user"
 
   root :to => "home#index"
 

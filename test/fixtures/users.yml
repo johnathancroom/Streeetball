@@ -2,8 +2,14 @@
 
 one:
   username: MyString
-  password_hash: MyString
+  password_hash: $2a$10$0XLgOOnU50eOnxw5hso/kOa1C6tWT4jhiaXjVNcnSEX4/lJhPi.HC
+  email: MyString
+  email_confirmation_code: MyString
+  email_confirmed: 1
 
 two:
   username: MyString
-  password_hash: MyString
+  password_hash: $2a$10$0XLgOOnU50eOnxw5hso/kOa1C6tWT4jhiaXjVNcnSEX4/lJhPi.HC
+  email: MyString
+  email_confirmation_code: MyString
+  email_confirmed: 1

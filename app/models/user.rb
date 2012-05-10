@@ -1,17 +1,9 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username
+  attr_accessible :password, :username, :email, :email_confirmation_code, :email_confirmed
   
   validates_presence_of :username, :password_hash
-  
-  # Remove dashes from username
-  def username
-    @username
-  end
-  def username=(value)
-    @username = value.gsub(" ", "-")
-  end
   
   # Encrypt password
   include BCrypt

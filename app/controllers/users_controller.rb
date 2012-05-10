@@ -44,6 +44,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        ConfirmationMailer.welcome_email(@user).deliver
+      
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -79,5 +81,14 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+  
+  # GET /verify/{base64 id}
+  def verify
+    @user = User.find(Base64.decode64(params[:id]))
+    @user.email_confirmed = 1
+    @user.save
+    
+    redirect_to @user, :notice => "Email confirmed."
   end
 end
