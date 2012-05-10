@@ -8,8 +8,8 @@ one:
   email_confirmed: false
 
 two:
-  username: MyString
+  username: MyString2
   password_hash: MyString
   password_salt: MyString
-  email: MyString
+  email: MyString2
   email_confirmed: false

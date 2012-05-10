@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin
-    #render :text => "Not authorized"
+    render :text => "Admin only, yo!"
   end
   
   def current_user
