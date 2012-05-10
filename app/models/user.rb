@@ -3,15 +3,16 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   attr_accessible :password, :username, :email, :email_confirmation_code, :email_confirmed
   
-  validates_presence_of :username, :password_hash
+  attr_accessor :password
+  before_save :encrypt_password
+  
+  validates_presence_of :username, :password
   
   # Encrypt password
-  include BCrypt
-  def password
-    @password ||= Password.new(password_hash)
-  end
-  def password=(value)
-    @password = Password.create(value)
-    self.password_hash = @password
+  def encrypt_password
+    if password.present?
+      self.password_salt = BCrypt::Engine.generate_salt
+      self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
+    end
   end
 end
