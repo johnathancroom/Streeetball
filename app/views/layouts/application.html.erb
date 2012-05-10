@@ -8,6 +8,18 @@
 </head>
 <body>
 
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :class => "flash_#{name}" %>
+<% end %>
+
+<div class="user">
+  <% if current_user %>
+    Howdy, <%= link_to current_user.username, current_user %>. <%= link_to "Logout", logout_path %>
+  <% else %>
+    <%= link_to "Login", login_path %> | <%= link_to "Register", register_path %>
+  <% end %>
+</div>
+
 <%= yield %>
 
 </body>

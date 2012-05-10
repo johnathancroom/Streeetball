@@ -1,7 +1,12 @@
 Streeetball::Application.routes.draw do
 
-  resources :users
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+  resources :sessions
+
   get "verify/:id" => "users#verify", :as => "verify_user"
+  get "register" => "users#new", :as => "register"
+  resources :users
 
   root :to => "home#index"
 

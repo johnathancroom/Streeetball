@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :require_login, :only => [:edit, :update]
+  before_filter :require_admin, :only => [:index, :destroy]
+  
   # GET /users
   # GET /users.json
   def index
@@ -85,9 +88,8 @@ class UsersController < ApplicationController
   
   # GET /verify/{base64 id}
   def verify
-    @user = User.find(Base64.decode64(params[:id]))
-    @user.email_confirmed = 1
-    @user.save
+    @user = User.find(Base64.decode64(params[:id]).to_i)
+    @user.update_attribute(:email_confirmed, true)
     
     redirect_to @user, :notice => "Email confirmed."
   end
