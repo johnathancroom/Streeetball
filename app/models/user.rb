@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   
   has_many :posts
+  has_many :comments
   
   validates_presence_of :username, :password, :email
   validates_uniqueness_of :username, :email, :case_sensitive => false

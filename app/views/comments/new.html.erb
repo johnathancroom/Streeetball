@@ -1,5 +1,6 @@
-<h1>New comment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', comments_path %>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <%= f.label :blurb %><br>
+  <%= f.text_area :blurb %><br>
+  
+  <%= f.submit 'Publish Comment' %>
+<% end %>

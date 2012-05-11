@@ -13,7 +13,7 @@
 <% end %>
 
 <div class="user">
-  <% if current_user %>
+  <% if logged_in %>
     Howdy, <%= link_to current_user.username, current_user %>. <%= link_to "Sign out", signout_path %>
   <% else %>
     <%= link_to "Sign in", signin_path %> | <%= link_to "Register", register_path %>

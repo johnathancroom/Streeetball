@@ -1,19 +1,21 @@
 Streeetball::Application.routes.draw do
 
-  resources :comments
+  get 'browse' => 'posts#index', :as => 'browse'
+  resources :posts, :except => [:index] do
+    member do
+      post 'comments' => 'comments#create'
+    end
+  end
 
-  get "browse" => "posts#index", :as => "browse"
-  resources :posts, :except => [:index]
-
-  get "signin" => "sessions#new", :as => "signin"
-  get "signout" => "sessions#destroy", :as => "signout"
+  get 'signin' => 'sessions#new', :as => 'signin'
+  get 'signout' => 'sessions#destroy', :as => 'signout'
   resources :sessions
 
-  get "verify/:id" => "users#verify", :as => "verify_user"
-  get "register" => "users#new", :as => "register"
+  get 'verify/:id' => 'users#verify', :as => 'verify_user'
+  get 'register' => 'users#new', :as => 'register'
   resources :users
 
-  root :to => "home#index"
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,11 +64,11 @@ Streeetball::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with 'root'
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  # See how all your routes lay out with "rake routes"
+  # See how all your routes lay out with 'rake routes'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.

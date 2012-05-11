@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
     else
-      redirect_to login_url, :alert => "Invalid email or password"
+      redirect_to signin_url, :alert => "Invalid email or password"
     end
   end
   
