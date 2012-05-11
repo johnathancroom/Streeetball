@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :require_login, :only => [:new, :create]
+
   # GET /comments
   # GET /comments.json
   def index
@@ -7,17 +9,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comments }
-    end
-  end
-
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @comment }
     end
   end
 
@@ -32,11 +23,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/1/edit
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-
   # POST /comments
   def create
     @comment = Comment.new(params[:comment])
@@ -48,22 +34,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to :back, notice: 'Comment posted.' }
       else
         format.html { redirect_to :back, alert: params }
-      end
-    end
-  end
-
-  # PUT /comments/1
-  # PUT /comments/1.json
-  def update
-    @comment = Comment.find(params[:id])
-
-    respond_to do |format|
-      if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
