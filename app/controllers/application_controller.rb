@@ -15,17 +15,17 @@ class ApplicationController < ActionController::Base
   
   def require_credentials
     if current_user.nil? || params[:id] != current_user.id.to_s
-      #redirect_to signin_url, :alert => "You're not allowed there!"
+      redirect_to signin_url, :alert => "You're not allowed there!"
     end
   end
   
   def require_login
     if current_user.nil?
-      #redirect_to signin_url, :alert => "Please log in"
+      redirect_to signin_url, :alert => "Please log in"
     end
   end
   
   def require_admin
-    #render :text => "Admin only, yo!", :status => 403
+    render :text => "Admin only, yo!", :status => 403
   end
 end
