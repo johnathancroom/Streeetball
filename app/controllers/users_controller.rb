@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login, :only => [:edit, :update]
+  before_filter :require_credentials, :only => [:edit, :update]
   before_filter :require_admin, :only => [:index, :destroy]
   
   # GET /users

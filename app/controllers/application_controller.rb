@@ -4,9 +4,15 @@ class ApplicationController < ActionController::Base
   
   private
   
-  def require_login
+  def require_credentials
     if current_user.nil? || params[:id] != current_user.id.to_s
-      redirect_to login_url, :alert => "Please login"
+      redirect_to login_url, :alert => "You're not allowed there!"
+    end
+  end
+  
+  def require_login
+    if current_user.nil?
+      redirect_to login_url, :alert => "Please log in"
     end
   end
   
