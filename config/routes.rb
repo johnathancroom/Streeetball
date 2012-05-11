@@ -9,7 +9,7 @@ Streeetball::Application.routes.draw do
 
   get 'signin' => 'sessions#new', :as => 'signin'
   get 'signout' => 'sessions#destroy', :as => 'signout'
-  resources :sessions
+  post 'signin' => 'sessions#create'
 
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
   get 'register' => 'users#new', :as => 'register'
