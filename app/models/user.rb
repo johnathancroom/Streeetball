@@ -13,9 +13,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
   # Auth
-  def self.authenticate(user, password)
-    #user = find_by_email(user)
-    if user = find_by_email(user) || user = find_by_username(user) # email or username
+  def self.authenticate(person, password)
+    if user = where("lower(email) = ?", person.downcase).first || user = where("lower(username) = ?", person.downcase).first # email or username
       if user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt) # check password
         user # return user
       end
