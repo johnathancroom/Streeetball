@@ -1,5 +1,7 @@
 Streeetball::Application.routes.draw do
 
+  resources :comments
+
   get "browse" => "posts#index", :as => "browse"
   resources :posts, :except => [:index]
 
