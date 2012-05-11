@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Other stuff
+.DS_Store
+config/initializers/aws.rb

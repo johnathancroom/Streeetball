@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
   
+  has_many :posts
+  
   validates_presence_of :username, :password, :email
   validates_uniqueness_of :email, :username
   

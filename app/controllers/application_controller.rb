@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
   
+  AWS::S3::S3Object.set_current_bucket_to 'streeetball'
+  
   private
   
   def require_credentials
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin
-    render :text => "Admin only, yo!"
+    render :text => "Admin only, yo!", :status => 403
   end
   
   def current_user

@@ -13,7 +13,7 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.name %></td>
-    <td><%= post.image_url %></td>
+    <td><%= s3_image_tag post.image_url %></td>
     <td><%= post.user_id %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
