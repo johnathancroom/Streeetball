@@ -1,5 +1,8 @@
 Streeetball::Application.routes.draw do
 
+  get "browse" => "posts#index", :as => "browse"
+  resources :posts
+
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
   resources :sessions
