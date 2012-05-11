@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
   
   def require_login
-    if params[:id] != current_user.id.to_s
+    if current_user.nil? || params[:id] != current_user.id.to_s
       redirect_to login_url, :alert => "Please login"
     end
   end
