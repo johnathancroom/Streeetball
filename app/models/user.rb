@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :posts
   
   validates_presence_of :username, :password, :email
-  validates_uniqueness_of :email, :username
+  validates_uniqueness_of :username, :email, :case_sensitive => false
   
   # Auth
   def self.authenticate(email, password)

@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <%= @user.username %>
 </p>
 
-<% if current_user.id == @user.id %>
+<% if current_user && current_user.id == @user.id %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>

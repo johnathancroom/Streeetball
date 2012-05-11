@@ -8,13 +8,6 @@ class PostTest < ActiveSupport::TestCase
     assert @post.errors.has_key?(:name), "Saved without name"
   end
   
-  test "should not save without image" do
-    @post = Post.new
-    @post.valid?
-    
-    assert @post.errors.has_key?(:image_url), "Saved without image_url"
-  end
-  
   test "should not save without user" do
     @post = Post.new
     @post.valid?

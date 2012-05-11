@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
   
   belongs_to :user
   
-  validates_presence_of :name, :image
+  validates_presence_of :name, :image, :user_id
 end
