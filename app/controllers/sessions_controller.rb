@@ -3,12 +3,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-    user = User.authenticate(params[:email], params[:password])
-    if user
+    if user = User.authenticate(params[:user], params[:password])
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
     else
-      redirect_to signin_url, :alert => "Invalid email or password"
+      redirect_to signin_url, :alert => "Invalid login credentials"
     end
   end
   
