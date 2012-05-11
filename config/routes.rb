@@ -3,8 +3,8 @@ Streeetball::Application.routes.draw do
   get "browse" => "posts#index", :as => "browse"
   resources :posts, :except => [:index]
 
-  get "login" => "sessions#new", :as => "login"
-  get "logout" => "sessions#destroy", :as => "logout"
+  get "signin" => "sessions#new", :as => "signin"
+  get "signout" => "sessions#destroy", :as => "signout"
   resources :sessions
 
   get "verify/:id" => "users#verify", :as => "verify_user"
