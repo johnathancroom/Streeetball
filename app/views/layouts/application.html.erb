@@ -12,7 +12,7 @@
 <body>
   <nav class="top-nav">
     <div class="wrapper">
-      <%= link_to (image_tag 'logo-dark.png'), root_url %>
+      <%= link_to (image_tag 'logo-dark.png'), root_path %>
       
       <% if logged_in %>
         Howdy, <%= link_to current_user.username, user_path(current_user.username) %>. <%= link_to "Sign out", signout_path %>
