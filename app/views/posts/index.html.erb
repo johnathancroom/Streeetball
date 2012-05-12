@@ -1,5 +1,7 @@
-<% @posts.each do |post| %>
-  <div class="post">
-    <%= link_to (s3_image_tag post.image_url, :alt => post.name), post %>
-  </div>
-<% end %>
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <%= link_to (s3_image_tag post.image_url, :alt => post.name), post %>
+    </div>
+  <% end %>
+</div>
