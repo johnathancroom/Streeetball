@@ -1,7 +1,6 @@
 Streeetball::Application.routes.draw do
 
-  get 'browse' => 'posts#index', :as => 'browse'
-  resources :posts, :except => [:index] do
+  resources :posts do
       post 'comments' => 'comments#create'
   end
 
