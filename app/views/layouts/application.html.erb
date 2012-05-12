@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Streeetball</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>Streeetball &mdash; Prospect's Welcome</title>
+  <%= stylesheet_link_tag 'application' %>
+  <link rel="shortcut icon" href="images/favicon.png">
+  <%= favicon_link_tag 'favicon.png' %>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="top-nav">
+    <div class="wrapper">
+      <%= link_to (image_tag 'logo-dark.png'), root_url %>
+      
+      <% if logged_in %>
+        Howdy, <%= link_to current_user.username, user_path(current_user.username) %>. <%= link_to "Sign out", signout_path %>
+      <% else %>
+        <div class="h-info">
+          <%= link_to "Sign in", signin_path, :class => 'primary' %>
+          <%= link_to "Sign up", register_path %>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+  
+  <div class="wrapper">
+    <%#= image_tag "logo.png" %>
+<!--    <div class="hookText"><span>Catchy catch line goes here</span><br /><i>Here's a short description to make people wanna join</i></div>-->
+  
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <% end %>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :class => "flash_#{name}" %>
-<% end %>
-
-<div class="user">
-  <% if logged_in %>
-    Howdy, <%= link_to current_user.username, user_path(current_user.username) %>. <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in", signin_path %> | <%= link_to "Register", register_path %>
-  <% end %>
-</div>
-
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>
