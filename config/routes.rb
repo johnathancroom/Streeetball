@@ -5,12 +5,14 @@ Streeetball::Application.routes.draw do
   end
 
   get 'signin' => 'sessions#new', :as => 'signin'
-  get 'signout' => 'sessions#destroy', :as => 'signout'
   post 'signin' => 'sessions#create'
+  
+  get 'signout' => 'sessions#destroy', :as => 'signout'
+  
+  get 'signup' => 'users#new', :as => 'signup'
+  post 'signup' => 'users#create'
 
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
-  get 'signup' => 'users#new', :as => 'signup'
-  post 'signup' => 'users#create' 
   get 'confirmation' => 'users#confirmation', :as => 'confirmation'
   #get ':username' => 'users#show', :as => 'user'
   #put ':username' => 'users#update'
