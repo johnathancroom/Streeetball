@@ -14,6 +14,7 @@ Streeetball::Application.routes.draw do
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
   get 'register' => 'users#new', :as => 'register'
   get 'confirmation' => 'users#confirmation', :as => 'confirmation'
+  get ':username' => 'users#show', :as => 'user'
   resources :users
 
   root :to => 'home#index'

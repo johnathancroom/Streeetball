@@ -16,11 +16,15 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    @user = User.where("lower(username) = ?", params[:username].downcase).first
+    
+    if params[:username] != @user.username
+      redirect_to user_path(@user.username), :status => 301
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @user }
+      end
     end
   end
 
