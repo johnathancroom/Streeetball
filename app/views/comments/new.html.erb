@@ -1,6 +1,7 @@
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <%= f.label :blurb %><br>
-  <%= f.text_area :blurb %><br>
-  
-  <%= f.submit 'Publish Comment' %>
-<% end %>
+<div class="new-comment">
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+    <%= f.text_area :blurb, :placeholder => 'Your comment' %>
+    
+    <%= f.submit 'Publish Comment' %>
+  <% end %>
+</div>
