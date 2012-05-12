@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    #@user = User.find(params[:id])
     @user = User.where('lower(username) = ?', params[:username].downcase).first
     
     respond_to do |format|
@@ -40,7 +39,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    #@user = User.find(params[:id])
   end
 
   # POST /users
@@ -64,7 +62,6 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    #@user = User.find(params[:id])
     @params = params[:user]
 
     # Profile image

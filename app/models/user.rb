@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :unless => [:update]
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
-  # Use username insteaf of ID
+  # Use username instead of ID
   # http://stackoverflow.com/a/7735324/1136307
   def to_param
     username
