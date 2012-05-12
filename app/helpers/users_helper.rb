@@ -8,7 +8,9 @@ module UsersHelper
     end
   end
   
-  def link_to_dribbble(username)
-    link_to "@#{username}", "http://dribbble.com/#{username}"
+  def link_to_dribbble(user)
+    if user.dribbble_username
+      link_to "@#{user.dribbble_username}", "http://dribbble.com/#{user.dribbble_username}"
+    end
   end
 end

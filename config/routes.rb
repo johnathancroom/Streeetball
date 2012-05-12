@@ -2,9 +2,7 @@ Streeetball::Application.routes.draw do
 
   get 'browse' => 'posts#index', :as => 'browse'
   resources :posts, :except => [:index] do
-    member do
       post 'comments' => 'comments#create'
-    end
   end
 
   get 'signin' => 'sessions#new', :as => 'signin'

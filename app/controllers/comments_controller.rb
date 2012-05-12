@@ -27,13 +27,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.user_id = current_user.id
-    @comment.post_id = params[:id]
+    @comment.post_id = params[:post_id]
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to :back, notice: 'Comment posted.' }
+        format.html { redirect_to post_path(@comment.post_id), notice: 'Comment posted.' }
       else
-        format.html { redirect_to :back, alert: params }
+        format.html { redirect_to post_path(@comment.post_id), alert: 'Something went wrong when commenting' }
       end
     end
   end

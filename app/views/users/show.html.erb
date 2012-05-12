@@ -1,21 +1,17 @@
-<p>
-  <%= @user.username %>
-</p>
-
-<p class="profile_image">
-  <%= profile_image_tag @user %>
-</p>
-
-<% if @user.dribbble_username %>
-  <p>
-    Dribbble: <%= link_to_dribbble @user.dribbble_username %>
+<div class="profile">
+  <%= profile_image_tag @user, :class => "profile-image" %>
+  
+  <div class="head">
+    <h1><%= @user.username %></h1>
+    <a href="#">Phoenix, AZ</a>
+    <%= link_to_dribbble @user %>
+  </div>
+  
+  <p class="bio">
+    <%= @user.bio %>
   </p>
-<% end %>
-
-<p>
-  <%= @user.bio %>
-</p>
-
-<% if current_user && current_user.id == @user.id %>
-  <%= link_to 'Edit', edit_user_path(@user) %>
-<% end %>
+  
+  <% if current_user && current_user.id == @user.id %>
+    <%#= link_to 'Edit', edit_user_path(@user) %>
+  <% end %>
+</div>

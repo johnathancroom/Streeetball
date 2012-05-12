@@ -20,6 +20,35 @@
   color: red;
 }
 
-.profile_image img {
-  width: 64px;
+.profile {
+  color: #adadad;
+  text-shadow: 1px 1px 0 #FFF;
+}
+.profile .head a {
+  font-size: 0.8em;
+  margin-right: 5px;
+  top: 2px;
+}
+.profile .head a:hover {
+  text-decoration: underline;
+}
+.profile .head h1 {
+  color: #7ca34f;
+  float: left;
+  font-size: 1em;
+  margin-right: 10px;
+}
+.profile p {
+  font-size: 0.8em;
+}
+.profile .profile-image {
+  border: 3px solid #DDD;
+  box-shadow: 0 1px 0 0 #CCC;
+  float: left;
+  margin: 0 10px 10px 0;
+  width: 90px;
+}
+.profile .bio {
+  line-height: 1.5em;
+  margin-top: 5px;
 }
