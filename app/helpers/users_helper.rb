@@ -4,7 +4,11 @@ module UsersHelper
       s3_image_tag source, options
     else
       # Default profile image
-      s3_image_tag "default_profile_image.jpeg", options
+      s3_image_tag 'default_profile_image.jpeg', options
     end
+  end
+  
+  def link_to_dribbble(username)
+    link_to "@#{username}", "http://dribbble.com/#{username}"
   end
 end

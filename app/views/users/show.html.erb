@@ -6,6 +6,12 @@
   <%= profile_image_tag @user.image_url %>
 </p>
 
+<% if @user.dribbble_username %>
+  <p>
+    Dribbble: <%= link_to_dribbble @user.dribbble_username %>
+  </p>
+<% end %>
+
 <p>
   <%= @user.bio %>
 </p>
