@@ -12,9 +12,11 @@ Streeetball::Application.routes.draw do
   post 'signin' => 'sessions#create'
 
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
-  get 'register' => 'users#new', :as => 'register'
+  get 'signup' => 'users#new', :as => 'signup'
+  post 'signup' => 'users#create' 
   get 'confirmation' => 'users#confirmation', :as => 'confirmation'
-  get ':username' => 'users#show', :as => 'user'
+  #get ':username' => 'users#show', :as => 'user'
+  #put ':username' => 'users#update'
   resources :users
 
   root :to => 'home#index'

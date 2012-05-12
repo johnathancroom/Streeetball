@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   # Auth
   def self.authenticate(person, password)
-    if user = where("lower(email) = ?", person.downcase).first || user = where("lower(username) = ?", person.downcase).first # email or username
+    if user = where("lower(email) = ?", person.downcase).first || user = where("lower(username) = ?", person.downcase).first # check username or email
       if user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt) # check password
         user # return user
       end

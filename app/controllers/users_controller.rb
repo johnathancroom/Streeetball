@@ -16,15 +16,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.where("lower(username) = ?", params[:username].downcase).first
+    @user = User.find(params[:id])
     
-    if params[:username] != @user.username
-      redirect_to user_path(@user.username), :status => 301
-    else
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @user }
-      end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
     end
   end
 
@@ -81,7 +77,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(@params)
-        format.html { redirect_to user_path(@user.username), notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

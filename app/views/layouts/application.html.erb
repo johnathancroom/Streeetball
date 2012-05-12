@@ -15,11 +15,11 @@
       <%= link_to (image_tag 'logo-dark.png'), root_path %>
       
       <% if logged_in %>
-        Howdy, <%= link_to current_user.username, user_path(current_user.username) %>. <%= link_to "Sign out", signout_path %>
+        Howdy, <%= link_to current_user.username, current_user %>. <%= link_to "Sign out", signout_path %>
       <% else %>
         <div class="h-info">
           <%= link_to "Sign in", signin_path, :class => 'primary' %>
-          <%= link_to "Sign up", register_path %>
+          <%= link_to "Sign up", signup_path %>
         </div>
       <% end %>
     </div>
@@ -32,6 +32,8 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :class => "flash_#{name}" %>
     <% end %>
+    
+    <%#= params %>
 
     <%= yield %>
   </div>
