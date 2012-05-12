@@ -12,6 +12,10 @@
  *= require_tree .
 */
 
+body {
+  text-shadow: 1px 1px 0 #FFF;
+}
+
 .flash_notice {
   color: green;
 }
@@ -20,19 +24,23 @@
   color: red;
 }
 
+.profile-image {
+  border: 4px solid #FFF;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 0 #CCC;
+}
+
 .profile {
   color: #adadad;
   height: 110px; /* .profile-image + 20px */
-  text-shadow: 1px 1px 0 #FFF;
 }
 .profile .head a {
-  font-size: 0.8em;
+  font-size: 12px;
   margin-right: 5px;
-  top: 3px;
+  top: 4px;
 }
 .profile .head a.social {
   font-weight: bold;
-  top: 2px;
 }
 .profile .head a:hover {
   text-decoration: underline;
@@ -40,15 +48,13 @@
 .profile .head h1 {
   color: #7ca34f;
   float: left;
-  font-size: 1em;
+  font-size: 16px;
   margin-right: 10px;
 }
 .profile p {
-  font-size: 0.8em;
+  font-size: 13px;
 }
 .profile .profile-image {
-  border: 3px solid #DDD;
-  box-shadow: 0 1px 0 0 #CCC;
   float: left;
   margin-right: 10px;
   width: 90px;
@@ -60,4 +66,63 @@
 
 .post:nth-child(4) {
   margin-right: 0;
+}
+.single {
+/*  border: 1px solid red;*/
+  margin: 0 auto;
+  padding: 0 6px;
+  width: 422px;
+}
+.single .post {
+  left: -6px;
+  margin: 0 0 8px 0;
+}
+.single .post img {
+  width: 400px;
+}
+.single h1 {
+  color: #616161;
+  font-size: 18px;
+}
+.single .by {
+  color: #a1a1a1;
+  font-size: 13px;
+  margin: 4px 0 15px 2px;
+}
+.single .by a {
+  color: #7ca14f;
+  font-weight: bold;
+}
+.single .by a:hover {
+  text-decoration: underline;
+}
+.single .comment {
+  border-bottom: 1px solid #DDD;
+  font-size: 13px;
+  padding: 15px 0 15px 50px;
+}
+.single .comment.last {
+  border-bottom: none;
+}
+.single .comment img {
+  left: 0;
+  position: absolute;
+  width: 40px;
+}
+.single .comment a.user {
+  color: #7ca14f;
+  font-weight: bold;
+}
+.single .comment a.user:hover {
+  text-decoration: underline;
+}
+.single .comment .blurb {
+  color: #7b7b7b;
+  margin-top: 6px;
+}
+.single .comment .time {
+  color: #B1B1B1;
+  font-size: 10px;
+  margin-top: 6px;
+  text-shadow: none;
 }

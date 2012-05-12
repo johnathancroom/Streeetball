@@ -1,5 +1,8 @@
-<ul>
-  <% @comments.each do |comment| %>
-    <li><%= comment.blurb %> <strong><%= comment.user.username %></strong></li>
-  <% end %>
-</ul>
+<% @comments.each_with_index do |comment, index| %>
+  <div class="comment<%= ' last' if index == @comments.count-1 %>">
+    <%= profile_image_tag comment.user, :class => 'profile-image' %>
+    <%= link_to comment.user.username, comment.user, :class => 'user' %>
+    <p class="blurb"><%= comment.blurb %></p>
+    <div class="time"><%= time_ago_in_words comment.created_at %> ago</div>
+  </div>
+<% end %>
