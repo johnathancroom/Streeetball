@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :unless => [:update]
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
+  # Use username insteaf of ID
+  # http://stackoverflow.com/a/7735324/1136307
+  def to_param
+    username
+  end
+  
   # Auth
   def self.authenticate(person, password)
     if user = where("lower(email) = ?", person.downcase).first || user = where("lower(username) = ?", person.downcase).first # check username or email

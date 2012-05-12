@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :require_credentials, :only => [:edit, :update]
   before_filter :require_admin, :only => [:index, :destroy]
   
+  before_filter :get_user, :only => [:show, :edit, :update]
+  
   # GET /users
   # GET /users.json
   def index
@@ -16,7 +18,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
+    @user = User.where('lower(username) = ?', params[:username].downcase).first
     
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +40,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
   end
 
   # POST /users
@@ -61,7 +64,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     @params = params[:user]
 
     # Profile image
@@ -105,5 +108,14 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     
     redirect_to @user, :notice => "Email confirmed."
+  end
+  
+  # DRY Functions
+  def get_user
+    @user = User.where('lower(username) = ?', params[:username].downcase).first
+    
+    if params[:username] != @user.username
+      redirect_to @user, :status => 301
+    end
   end
 end

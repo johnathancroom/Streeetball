@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
   
   def require_credentials
-    if current_user.nil? || params[:id] != current_user.id.to_s
+    if current_user.nil? || (params[:id].present? && params[:id] != current_user.id.to_s) || (params[:username].present? && params[:username] != current_user.username)
       redirect_to signin_url, :alert => "You're not allowed there!"
     end
   end

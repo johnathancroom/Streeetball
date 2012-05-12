@@ -14,8 +14,11 @@ Streeetball::Application.routes.draw do
 
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
   get 'confirmation' => 'users#confirmation', :as => 'confirmation'
-  #get ':username' => 'users#show', :as => 'user'
-  #put ':username' => 'users#update'
+  
+  get ':username' => 'users#show', :as => 'user'
+  put ':username' => 'users#update'
+  get ':username/edit' => 'users#edit', :as => 'edit_user'
+  
   resources :users
 
   root :to => 'home#index'
