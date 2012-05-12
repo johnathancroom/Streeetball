@@ -22,6 +22,7 @@
 
 .profile {
   color: #adadad;
+  height: 110px; /* .profile-image + 20px */
   text-shadow: 1px 1px 0 #FFF;
 }
 .profile .head a {
@@ -45,7 +46,7 @@
   border: 3px solid #DDD;
   box-shadow: 0 1px 0 0 #CCC;
   float: left;
-  margin: 0 10px 10px 0;
+  margin-right: 10px;
   width: 90px;
 }
 .profile .bio {

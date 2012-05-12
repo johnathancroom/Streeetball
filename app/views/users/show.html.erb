@@ -15,3 +15,5 @@
     <%#= link_to 'Edit', edit_user_path(@user) %>
   <% end %>
 </div>
+
+<%= render :template => 'posts/index', :locals => { :@posts => @user.posts } %>
