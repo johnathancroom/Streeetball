@@ -17,4 +17,4 @@
   <% end %>
 </div>
 
-<%= render :template => 'posts/index', :locals => { :@posts => @user.posts } %>
+<%= render :template => 'posts/index', :locals => { :@posts => @user.posts.reverse } %>
