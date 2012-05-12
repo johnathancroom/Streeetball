@@ -28,6 +28,10 @@
 .profile .head a {
   font-size: 0.8em;
   margin-right: 5px;
+  top: 3px;
+}
+.profile .head a.social {
+  font-weight: bold;
   top: 2px;
 }
 .profile .head a:hover {

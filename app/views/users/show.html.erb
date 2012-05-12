@@ -3,8 +3,9 @@
   
   <div class="head">
     <h1><%= @user.username %></h1>
-    <a href="#">Phoenix, AZ</a>
-    <%= link_to_dribbble @user %>
+    <%= link_to @user.location, '#' %>
+    <%= link_to_dribbble @user, :class => 'social' %>
+    <%= link_to_twitter @user, :class => 'social' %>
   </div>
   
   <p class="bio">
