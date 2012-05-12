@@ -14,14 +14,16 @@
     <div class="wrapper">
       <%= link_to (image_tag 'logo-dark.png'), root_path %>
       
-      <% if logged_in %>
-        Howdy, <%= link_to current_user.username, current_user %>. <%= link_to "Sign out", signout_path %>
-      <% else %>
-        <div class="h-info">
+      <div class="h-info">
+        <% if logged_in %>
+          <%= link_to (profile_image_tag current_user, :class => 'profile-image'), current_user %>
+          <%#= link_to "Upload", new_post_path, :class => 'primary' %>
+          <%= link_to "Sign out", signout_path %>
+        <% else %>
           <%= link_to "Sign in", signin_path, :class => 'primary' %>
           <%= link_to "Sign up", signup_path %>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </nav>
   

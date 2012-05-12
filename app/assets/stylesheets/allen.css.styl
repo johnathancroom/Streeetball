@@ -14,6 +14,12 @@ box-sizing() {
   margin: 0;
   padding: 0;
   position: relative;
+  vertical-align: top;
+}
+a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
 }
 body {
   background: url("pattern-main.png") #f5f5f5;
@@ -68,18 +74,30 @@ body {
   width: 30px;
 }
 .h-info {
-  float: right;
-  text-align: right;
-  text-transform: lowercase;
-  width: 200px;
-}
-.h-info a {
   color: #DDD;
+  float: right;
   font-size: 13px;
   letter-spacing: 1px;
-  padding-left: 15px;
+  padding-top: 5px;
+  text-align: right;
   text-decoration: none;
   text-shadow: 1px 1px 0px rgba(0,0,0,0.4);
+  vertical-align: middle;
+  width: 300px;
+}
+.h-info .profile-image {
+  border: 2px solid #282828;
+  box-shadow: 0px 1px 0px 0px #525252;
+  margin-right: 5px;
+  top: -7px;
+  width: 28px;
+}
+.h-info a {
+  margin-left: 5px;
+  text-transform: lowercase;
+}
+.h-info a:hover {
+  text-decoration: underline;
 }
 .h-info .primary {
   background: #75b22e;
@@ -96,11 +114,15 @@ body {
   display: inline-block;
   padding: 7px 10px;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  top: -7px;
   user-select: none;
+}
+.h-info .primary:hover {
+  text-decoration: none;
 }
 .h-info .primary:active { 
   background: #69a227;
-  top: 1px;
+  top: -6px;
 }
 #Logo {
   background: url("logo.png") no-repeat left;
