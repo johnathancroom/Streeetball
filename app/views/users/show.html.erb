@@ -2,6 +2,14 @@
   <%= @user.username %>
 </p>
 
+<p class="profile_image">
+  <%= profile_image_tag @user.image_url %>
+</p>
+
+<p>
+  <%= @user.bio %>
+</p>
+
 <% if current_user && current_user.id == @user.id %>
   <%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>

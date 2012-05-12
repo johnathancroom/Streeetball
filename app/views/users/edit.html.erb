@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url, "New Profile Picture" %><br>
+    <%= f.file_field :image_url %>
+  </div>
+  <div class="field">
     <%= f.label :password, 'New password' %><br />
     <%= f.password_field :password %>
   </div>

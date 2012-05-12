@@ -19,3 +19,7 @@
 .flash_error {
   color: red;
 }
+
+.profile_image img {
+  width: 64px;
+}

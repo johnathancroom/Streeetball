@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username, :email, :email_confirmed
+  attr_accessible :password, :username, :email, :email_confirmed, :bio, :image_url
   
   attr_accessor :password
   before_save :encrypt_password
@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   
-  validates_presence_of :username, :password, :email
+  validates_presence_of :username, :email
+  validates_presence_of :password, :unless => [:update]
   validates_uniqueness_of :username, :email, :case_sensitive => false
   
   # Auth

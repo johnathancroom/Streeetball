@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120511185456) do
+ActiveRecord::Schema.define(:version => 20120511234108) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20120511185456) do
     t.string   "email"
     t.boolean  "email_confirmed", :default => false
     t.string   "password_salt"
+    t.text     "bio"
+    t.string   "image_url"
   end
 
 end
