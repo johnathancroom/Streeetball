@@ -14,10 +14,11 @@ Streeetball::Application.initialize!
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {
-  :address => 'smtp.gmail.com',
+  :address => 'smtp.sendgrid.com',
+  :domain => ENV['MAILER_HOST'],
   :port => 587,
   :authentication => :plain,
-  :enable_starttls_auto => true,
-  :user_name => ENV['GMAIL_USERNAME'],
-  :password => ENV['GMAIL_PASSWORD']
+  :enable_starttls_auto => false,
+  :user_name => ENV['SENDGRID_USERNAME'],
+  :password => ENV['SENDGRID_PASSWORD']
 }
