@@ -5,7 +5,7 @@ module ApplicationHelper
     
     options.symbolize_keys!
     
-    src = options[:src] = "https://s3.amazonaws.com/streeetball/#{source}"
+    src = options[:src] = "https://streeetball.s3.amazonaws.com/#{source}"
   
     if size = options.delete(:size)
       options[:width], options[:height] = size.split("x") if size =~ %r{^\d+x\d+$}
