@@ -8,11 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require global/reset
  *= require_self
  *= require_tree .
 */
 
-@import "global/reset";
 @import "global/variables";
 @import "global/mixins";
 @import "global/fontface";
@@ -22,6 +22,10 @@
 body, input, textarea, select {
   font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
+  margin-bottom: 10px;
+}
 body {
   background: url("pattern-main.png") #f5f5f5;
   text-shadow: 1px 1px 0 #FFF;
@@ -29,6 +33,10 @@ body {
 a {
   color: inherit;
   font: inherit;
+}
+h1 {
+  color: #999;
+  font-size: 20px;
 }
 .top-nav {
   background: url("noise.png");
@@ -48,6 +56,9 @@ a {
   margin: 0 auto;
   max-width: 930px;
   padding: 0 20px;
+}
+.wrapper .logo {
+  top: -2px;
 }
 .user-functions {
   color: #EEE;
@@ -70,9 +81,9 @@ a {
 .user-functions a {
   margin-left: 5px;
   text-transform: lowercase;
-}
-.user-functions a:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .user-functions .primary {
   background: #75b22e;
@@ -92,13 +103,14 @@ a {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
   top: -7px;
   user-select: none;
-}
-.user-functions .primary:hover {
-  text-decoration: none;
-}
-.user-functions .primary:active { 
-  background: #69a227;
-  top: -6px;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  &:active { 
+    background: #69a227;
+    top: -6px;
+  }
 }
 .flash_notice {
   color: green;
@@ -107,19 +119,52 @@ a {
 .flash_error {
   color: red;
 }
+input[type=text],
+input[type=password],
 textarea {
   background: rgba(0,0,0,0.02);
   border: 1px solid #FFF;
-  border-radius: 2px;
   box-shadow: inset 0 1px 0 1px #D1D1D1;
-  max-width: 100%;
+  &:focus {
+    // Needs focus styles
+    outline: none;
+  }
+}
+textarea {
+  border-radius: 2px;
   height: 100px;
+  max-width: 100%;
   padding: 6px;
   width: 100%;
 }
-textarea:focus {
-  // Needs focus styles
-  outline: none;
+input[type=text],
+input[type=password] {
+  border-radius: 3px;
+  height: 18px;
+  font-size: 13px;
+  max-width: 40%;
+  padding: 7px;
+  text-shadow: 0px 1px 0px #eee;
+  width: 40%;
+}
+textarea,
+input[type=text],
+input[type=password],
+input[type=submit],
+input[type=file] {
+  display: block;
+  margin-bottom: 6px;
+}
+.submit {
+  background: lighten($textHlight, 10%);
+  border: none; //default! ugly culprit!
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+  margin-top: 14px;
+  padding: 8px 10px;
+  text-shadow: 0px 1px 0px darken($textHlight, 10%);
+  text-transform: lowercase;
 }
 .preview {
   margin-bottom: 20px;
@@ -154,7 +199,7 @@ textarea:focus {
   color: $textHlight;
   float: left;
   font-size: 16px;
-  margin-right: 10px;
+  margin: 0 10px 0 0;
 }
 .profile p {
   font-size: 13px;
@@ -197,6 +242,7 @@ textarea:focus {
 .single h1 {
   color: #616161;
   font-size: 18px;
+  margin: 0;
 }
 .single .details {
   color: #a1a1a1;

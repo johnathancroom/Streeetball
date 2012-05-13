@@ -106,16 +106,17 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     
-    # Check if this is your post
-    if @post.user.id == current_user.id
-      render :json => {}
-      return
-    end
-    
     # Check if not logged in
     if !logged_in
       flash[:alert] = 'You must sign in if you want to like that'
       render :json => { :redirect => signin_path }
+      return
+    end
+    
+    # Check if this is your post
+    if @post.user.id == current_user.id
+      render :json => {}
+      return
     end
     
     # Check if like already exists

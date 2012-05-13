@@ -10,32 +10,24 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+  
+  <%= f.label :dribbble_username %>
+  <%= f.text_field :dribbble_username %>
+  
+  <%= f.label :twitter_username, 'Twitter handle' %>
+  <%= f.text_field :twitter_username %>
+  
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  
+  <%= f.label :image_url, 'New Profile Picture' %>
+  <%= f.file_field :image_url %>
+  
+  <%= f.label :password, 'New Password' %>
+  <%= f.password_field :password %>
 
-  <p>
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
-  </p>
-  <p>
-    <%= f.label :dribbble_username %><br>
-    <%= f.text_field :dribbble_username %>
-  </p>
-  <p>
-    <%= f.label :twitter_username %><br>
-    <%= f.text_field :twitter_username %>
-  </p>
-  <p>
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </p>
-  <p>
-    <%= f.label :image_url, "New Profile Picture" %><br>
-    <%= f.file_field :image_url %>
-  </p>
-  <p>
-    <%= f.label :password, 'New password' %><br />
-    <%= f.password_field :password %>
-  </p>
-  <div class="actions">
-    <%= f.submit 'Save' %>
-  </p>
+  <%= f.submit 'Save', :class => 'submit' %>  
 <% end %>
