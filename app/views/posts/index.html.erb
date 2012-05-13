@@ -1,3 +1,9 @@
+<% if !logged_in %>
+  <div class="preview">
+    <%= image_tag "logo.png" %>
+  </div>
+<% end %>
+
 <div class="posts">
   <% @posts.each do |post| %>
     <div class="post">

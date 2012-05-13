@@ -27,10 +27,7 @@
     </div>
   </nav>
   
-  <div class="wrapper">
-    <%#= image_tag "logo.png" %>
-<!--    <div class="hookText"><span>Catchy catch line goes here</span><br /><i>Here's a short description to make people wanna join</i></div>-->
-  
+  <div class="wrapper">  
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :class => "flash_#{name}" %>
     <% end %>

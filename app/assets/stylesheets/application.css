@@ -39,6 +39,10 @@ textarea:focus {
   outline: none;
 }
 
+.preview {
+  margin-bottom: 20px;
+}
+
 .profile-image {
   border: 4px solid #FFF;
   border-radius: 2px;
