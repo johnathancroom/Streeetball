@@ -5,9 +5,9 @@
 <% end %>
 
 <div class="posts">
-  <% @posts.each do |post| %>
-    <div class="post">
+  <% @posts.each_with_index do |post, index| %>
+    <%= raw '-->' if index != 0 %><div class="post">
       <%= link_to (s3_image_tag post.image_url, :alt => post.name), post %>
-    </div>
+    </div><%= raw '<!--' %>
   <% end %>
 </div>
