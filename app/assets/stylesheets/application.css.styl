@@ -22,7 +22,10 @@
 body, input, textarea, select {
   font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.single .by a,
+.single .comment a.user,
+.profile .head h1 {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -48,7 +51,6 @@ h1 {
     0 4px 0 0 rgba(52,52,52,.04);
   color: #f5f5f5;
   font-size: 18px;
-  font-family: PTSansRegular;
   margin-bottom: 30px;
   padding: 8px 0px 4px 0;
 }
@@ -253,9 +255,11 @@ input[type=file] {
 .single .by {
   float: left;
 }
-.single .by a {
+.single .by a,
+.single .comment a.user {
+  //////////////////////////
+}.single .by a {
   color: $textHlight;
-  font-weight: bold;
 }
 .single .by a:hover {
   text-decoration: underline;
@@ -294,7 +298,6 @@ input[type=file] {
 }
 .single .comment a.user {
   color: $textHlight;
-  font-weight: bold;
 }
 .single .comment a.user:hover {
   text-decoration: underline;
