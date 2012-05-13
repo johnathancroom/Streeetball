@@ -34,7 +34,7 @@ a {
   font: inherit;
 }
 h1 {
-  color: $textHlight;
+  color: #999;
   font-size: 20px;
 }
 .top-nav {
@@ -84,7 +84,6 @@ h1 {
     text-decoration: underline;
   }
 }
-.primary,                   //fix ugly buttons
 .user-functions .primary {
   background: #75b22e;
   border-radius: 4px;
@@ -133,13 +132,33 @@ textarea {
   }
 }
 textarea {
-  max-width: 100%;
   height: 100px;
+  max-width: 100%;
   width: 100%;
   &:focus {
     // Needs focus styles
     outline: none;
   }
+}
+.field input[type=text],
+.field input[type=password] {
+  border-radius: 3px;
+  height: 18px;
+  font-size: 13px;
+  max-width: 40%;
+  padding: 7px;
+  text-shadow: 0px 1px 0px #eee;
+  width: 40%;
+}
+.submit {
+  background: lighten($textHlight, 10%);
+  border: none; //default! ugly culprit!
+  border-radius: 4px;
+  color: #fff;
+  font-size: 13px;
+  margin-top: 14px;
+  padding: 8px 10px;
+  text-shadow: 0px 1px 0px darken($textHlight, 10%);
 }
 .profile-image {
   border: 4px solid #FFF;
