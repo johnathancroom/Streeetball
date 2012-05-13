@@ -12,8 +12,7 @@
   <nav class="top-nav">
     <div class="wrapper">
       <%= link_to (image_tag 'logo-dark.png'), root_path %>
-      
-      <div class="h-info">
+      <div class="user-functions">
         <% if logged_in %>
           <%= link_to (profile_image_tag current_user, :class => 'profile-image'), current_user %>
           <%#= link_to "Upload", new_post_path, :class => 'primary' %>

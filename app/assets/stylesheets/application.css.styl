@@ -12,10 +12,94 @@
  *= require_tree .
 */
 
+@import "global/reset";
+@import "global/variables";
+@import "global/mixins";
+@import "global/fontface";
+
+//////////////////////////////////////////////////////////////////////////////
+
+body, input, textarea, select {
+  font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
+}
 body {
+  background: url("pattern-main.png") #f5f5f5;
   text-shadow: 1px 1px 0 #FFF;
 }
-
+a {
+  color: inherit;
+  font: inherit;
+}
+.top-nav {
+  background: url("noise.png");
+  border-bottom: 1px solid #000;
+  box-shadow:
+    0px 1px 0 0 #999,
+    inset 0px -65px 30px -40px rgba(0,0,0,.3),
+    inset 0px -1px 0 0 rgba(255,255,255,.2),
+    0 4px 0 0 rgba(52,52,52,.04);
+  color: #f5f5f5;
+  font-size: 18px;
+  font-family: PTSansRegular;
+  margin-bottom: 30px;
+  padding: 8px 0px 4px 0;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 945px;
+  padding: 0 20px;
+}
+.user-functions {
+  color: #EEE;
+  float: right;
+  font-size: 13px;
+  padding-top: 5px;
+  text-align: right;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.4);
+  vertical-align: middle;
+  width: 300px;
+}
+.user-functions .profile-image {
+  border: 2px solid #282828;
+  box-shadow: 0px 1px 0px 0px #525252;
+  margin-right: 5px;
+  top: -7px;
+  width: 28px;
+}
+.user-functions a {
+  margin-left: 5px;
+  text-transform: lowercase;
+}
+.user-functions a:hover {
+  text-decoration: underline;
+}
+.user-functions .primary {
+  background: #75b22e;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255,255,255,0.3),
+    inset 0 -30px 40px -20px rgba(0,0,0,0.5),
+    inset 0 0 3px 0 rgba(255,255,255,0.3),
+    0 1px 0 0 rgba(0,0,0,0.2),
+    0 -1px 0 0 rgba(0,0,0,0.2),
+    inset 0 13px 0 0 rgba(255,255,255,.1),
+    0 0 3px 0 rgba(0,0,0,0.3);
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  padding: 7px 10px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  top: -7px;
+  user-select: none;
+}
+.user-functions .primary:hover {
+  text-decoration: none;
+}
+.user-functions .primary:active { 
+  background: #69a227;
+  top: -6px;
+}
 .flash_notice {
   color: green;
 }
@@ -23,7 +107,6 @@ body {
 .flash_error {
   color: red;
 }
-
 textarea {
   background: rgba(0,0,0,0.02);
   border: 1px solid #FFF;
@@ -38,17 +121,14 @@ textarea:focus {
   // Needs focus styles
   outline: none;
 }
-
 .preview {
   margin-bottom: 20px;
 }
-
 .profile-image {
   border: 4px solid #FFF;
   border-radius: 2px;
   box-shadow: 0 1px 0 0 #CCC;
 }
-
 .profile {
   color: #adadad;
   height: 110px; /* .profile-image + 20px */
@@ -56,21 +136,22 @@ textarea:focus {
 .profile .head a {
   font-size: 12px;
   margin-right: 5px;
-  top: 4px;
+  top: 3px;
 }
 .profile .head a:hover {
   text-decoration: underline;
 }
 .profile .head a.social {
   font-weight: bold;
+  top: 2px;
 }
 .profile .head a.social:before {
   left: -1px;
   position: relative;
-  top: -3px;
+  top: -1px;
 }
 .profile .head h1 {
-  color: #7ca34f;
+  color: $textHlight;
   float: left;
   font-size: 16px;
   margin-right: 10px;
@@ -87,7 +168,17 @@ textarea:focus {
   line-height: 1.5em;
   margin-top: 5px;
 }
-
+.post {
+  background: #fafafa;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 #dfdfdf;
+  display: inline-block;
+  margin: 0 14px 20px 0;
+}
+.post img {
+  margin: 10px;
+  width: 192px;
+}
 .post:nth-child(4) {
   margin-right: 0;
 }
@@ -114,7 +205,7 @@ textarea:focus {
   margin: 4px 0 15px 2px;
 }
 .single .by a {
-  color: #7ca14f;
+  color: $textHlight;
   font-weight: bold;
 }
 .single .by a:hover {
@@ -134,7 +225,7 @@ textarea:focus {
   width: 40px;
 }
 .single .comment a.user {
-  color: #7ca14f;
+  color: $textHlight;
   font-weight: bold;
 }
 .single .comment a.user:hover {
