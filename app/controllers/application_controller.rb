@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_login
-    if current_user.nil?
+    if !logged_in
       redirect_to signin_url, :alert => "Please log in"
     end
   end
