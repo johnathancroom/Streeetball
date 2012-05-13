@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   
   has_many :posts
+  has_many :likes
   has_many :comments
   
   validates_presence_of :username, :email

@@ -9,7 +9,8 @@
     <div class="by">by <%= link_to @post.user.username, @post.user %></div>
     
     <div class="social">
-      <%= link_to '23', @post, :class => 'icon-heart js-post-like' %>
+      <% liked = ' liked' if @post.likes.find_by_user_id(current_user) %>
+      <%= link_to @post.likes.count, like_post_path, :class => 'icon-heart js-post-like'+(liked||'') %>
       <%= link_to @comments.count, '#comments', :class => 'icon-comments' %>
     </div>
   </div>

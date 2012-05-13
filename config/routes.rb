@@ -2,6 +2,9 @@ Streeetball::Application.routes.draw do
 
   resources :posts, :except => [:index] do
       post 'comments' => 'comments#create'
+      member do
+        post 'like' => 'posts#like'
+      end
   end
 
   get 'signin' => 'sessions#new', :as => 'signin'

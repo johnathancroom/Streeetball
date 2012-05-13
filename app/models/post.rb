@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   attr_accessor :image
   
   has_many :comments
+  has_many :likes
   belongs_to :user
   
   validates_presence_of :name, :image, :user_id

@@ -101,4 +101,20 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # POST /posts/1/like
+  def like
+    @post = Post.find(params[:id])
+    
+    # Check if it exists
+    if @like = @post.likes.find_by_user_id(current_user.id)
+      @like.destroy
+      status = false
+    else
+      @post.likes.create({ :user_id => current_user.id, :post_id => @post.id })
+      status = true
+    end
+    
+    render :json => { :like => status, :count => @post.likes.count }
+  end
 end

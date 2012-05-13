@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function throwError(error) {
+  alert("Error\nCheck console")
+  console.log(error)
+}
