@@ -13,7 +13,7 @@ Streeetball::Application.routes.draw do
   post 'signup' => 'users#create'
 
   get 'verify/:id' => 'users#verify', :as => 'verify_user'
-  get 'confirmation' => 'users#confirmation', :as => 'confirmation'
+  get 'verify' => 'users#confirmation', :as => 'verify'
   
   get ':username' => 'users#show', :as => 'user'
   put ':username' => 'users#update'

@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       if @user.save
         ConfirmationMailer.welcome_email(@user).deliver
       
-        format.html { redirect_to confirmation_path }
+        format.html { redirect_to verify_path }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
