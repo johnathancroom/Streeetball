@@ -16,4 +16,4 @@
 
 # Other stuff
 .DS_Store
-config/initializers/aws.rb
+config/env_vars.rb

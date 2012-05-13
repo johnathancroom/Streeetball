@@ -1,7 +1,3 @@
-<%
-@confirm_url = "http://localhost:5000" + url_for(:controller => "users", :action => "verify", :id => (Base64.encode64 @user.id.to_s))
-%>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,7 +6,7 @@
   <body>
     <h1>Welcome to Streeetball, <%= @user.username %></h1>
     <p>
-      You have successfully signed up to Streeetball, <a href="<%= @confirm_url %>">click here</a> to verify your email.
+      You have successfully signed up to Streeetball, <%= link_to 'click here', (verify_user_url (Base64.encode64 @user.id.to_s)) %> to verify your email.
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
