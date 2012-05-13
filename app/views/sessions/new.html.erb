@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<!--<h1>Sign in</h1>-->
 
 <%= form_tag signin_path do %>
   <p>
@@ -9,5 +9,5 @@
     <%= label_tag :password %><br>
     <%= password_field_tag :password %>
   </p>
-  <%= submit_tag "Login" %>
+  <%= submit_tag "Sign in" ,:class => 'primary'%>
 <% end %>

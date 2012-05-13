@@ -8,11 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require global/reset
  *= require_self
  *= require_tree .
 */
 
-@import "global/reset";
 @import "global/variables";
 @import "global/mixins";
 @import "global/fontface";
@@ -22,6 +22,9 @@
 body, input, textarea, select {
   font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
+}
 body {
   background: url("pattern-main.png") #f5f5f5;
   text-shadow: 1px 1px 0 #FFF;
@@ -29,6 +32,10 @@ body {
 a {
   color: inherit;
   font: inherit;
+}
+h1 {
+  color: $textHlight;
+  font-size: 20px;
 }
 .top-nav {
   background: url("noise.png");
@@ -48,6 +55,9 @@ a {
   margin: 0 auto;
   max-width: 945px;
   padding: 0 20px;
+}
+.wrapper .logo {
+  top: -2px;
 }
 .user-functions {
   color: #EEE;
@@ -70,10 +80,11 @@ a {
 .user-functions a {
   margin-left: 5px;
   text-transform: lowercase;
+  &:hover {
+    text-decoration: underline;
+  }
 }
-.user-functions a:hover {
-  text-decoration: underline;
-}
+.primary,                   //fix ugly buttons
 .user-functions .primary {
   background: #75b22e;
   border-radius: 4px;
@@ -92,13 +103,14 @@ a {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
   top: -7px;
   user-select: none;
-}
-.user-functions .primary:hover {
-  text-decoration: none;
-}
-.user-functions .primary:active { 
-  background: #69a227;
-  top: -6px;
+  
+  &:hover {
+    text-decoration: none;
+  }
+  &:active { 
+    background: #69a227;
+    top: -6px;
+  }
 }
 .flash_notice {
   color: green;
@@ -107,19 +119,27 @@ a {
 .flash_error {
   color: red;
 }
+input[type=text],
+input[type=password],
 textarea {
   background: rgba(0,0,0,0.02);
   border: 1px solid #FFF;
   border-radius: 2px;
   box-shadow: inset 0 1px 0 1px #D1D1D1;
+  padding: 6px;
+  &:focus {
+    // Needs focus styles
+    outline: none;
+  }
+}
+textarea {
   max-width: 100%;
   height: 100px;
-  padding: 6px;
   width: 100%;
-}
-textarea:focus {
-  // Needs focus styles
-  outline: none;
+  &:focus {
+    // Needs focus styles
+    outline: none;
+  }
 }
 .profile-image {
   border: 4px solid #FFF;

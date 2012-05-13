@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<!--<h1>Sign up</h1>-->
 
 <%= form_for @user, :url => signup_path do |f| %>
   <% if @user.errors.any? %>
@@ -26,6 +26,6 @@
     <%= f.password_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "sign up", :class => 'primary' %>
   </div>
 <% end %>
