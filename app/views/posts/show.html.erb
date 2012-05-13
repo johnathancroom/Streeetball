@@ -5,8 +5,13 @@
   
   <h1><%= @post.name %></h1>
   
-  <div class="by">
-    by <%= link_to @post.user.username, @post.user %>
+  <div class="details">
+    <div class="by">by <%= link_to @post.user.username, @post.user %></div>
+    
+    <div class="social">
+      <%= link_to '23', @post, :class => 'icon-heart js-post-like' %>
+      <%= link_to @comments.count, '#comments', :class => 'icon-comments' %>
+    </div>
   </div>
   
   <%= render :template => "comments/index" %>

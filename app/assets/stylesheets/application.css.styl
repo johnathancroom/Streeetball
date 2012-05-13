@@ -199,10 +199,14 @@ textarea:focus {
   color: #616161;
   font-size: 18px;
 }
-.single .by {
+.single .details {
   color: #a1a1a1;
   font-size: 13px;
-  margin: 4px 0 15px 2px;
+  height: 30px;
+  margin: 8px 2px 0 2px;
+}
+.single .by {
+  float: left;
 }
 .single .by a {
   color: $textHlight;
@@ -210,6 +214,19 @@ textarea:focus {
 }
 .single .by a:hover {
   text-decoration: underline;
+}
+.single .social {
+  float: right;
+  text-align: right;
+}
+.single .social a {
+  display: inline-block;
+  margin-left: 10px;
+}
+.single .social a:before {
+  font-size: 12px;
+  left: -2px;
+  position: relative;
 }
 .single .comment {
   border-bottom: 1px solid #DDD;
@@ -252,16 +269,6 @@ textarea:focus {
 }
 
 /* Icons */
-@font-face {
-	font-family: Scooby;
-	src: url('/fonts/scooby.eot');
-	src: url('/fonts/scooby.eot?#iefix') format('embedded-opentype'),
-		   url('/fonts/scooby.svg#Scooby') format('svg'),
-	   	 url('/fonts/scooby.woff') format('woff'),
-		   url('/fonts/scooby.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
 [class^="icon-"], [class*=" icon-"] {
 	font-family: Scooby;
 	font-style: normal;
