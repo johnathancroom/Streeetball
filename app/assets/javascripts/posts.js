@@ -7,23 +7,27 @@ likeButton.on("click", function(e) {
     type: "POST",
     dataType: "json",
     success: function(data, status, xhr) {
-      // Not logged in
-      if(data.redirect)
+      if($.isEmptyObject(data)) // Returns empty if this is your post
+      {
+        return
+      }
+      
+      if(data.redirect) // Not logged in
       {
         window.location = data.redirect // redirect to login page
       }
-      else
+      else // Logged in
       {
-        if(data.like)
+        if(data.like) // Liked
         {
           likeButton.addClass("liked")
         }
-        else
+        else // Unliked
         {
           likeButton.removeClass("liked")
         }
       
-        likeButton.html(data.count)
+        likeButton.html(data.count) // Update like-count
       }
     },
     error: function(xhr, status, error) {

@@ -106,21 +106,27 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     
-    # Check if logged in
-    if logged_in 
-      # Check if like already exists
-      if @like = @post.likes.find_by_user_id(current_user.id)
-        @like.destroy
-        status = false
-      else
-        @post.likes.create({ :user_id => current_user.id, :post_id => @post.id })
-        status = true
-      end
-      
-      render :json => { :like => status, :count => @post.likes.count }
-    else # not logged in
+    # Check if this is your post
+    if @post.user.id == current_user.id
+      render :json => {}
+      return
+    end
+    
+    # Check if not logged in
+    if !logged_in
       flash[:alert] = 'You must sign in if you want to like that'
       render :json => { :redirect => signin_path }
     end
+    
+    # Check if like already exists
+    if @like = @post.likes.find_by_user_id(current_user.id)
+      @like.destroy
+      status = false
+    else
+      @post.likes.create({ :user_id => current_user.id, :post_id => @post.id })
+      status = true
+    end
+    
+    render :json => { :like => status, :count => @post.likes.count }
   end
 end
