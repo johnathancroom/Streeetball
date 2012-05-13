@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :image_url, :name, :user_id, :image
+  attr_accessible :image_url, :name, :user_id, :image, :description
   attr_accessor :image
   
   has_many :comments

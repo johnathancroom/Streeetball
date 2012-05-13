@@ -13,15 +13,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
     <%= f.label :image %><br />
     <%= f.file_field :image %>
-  </div>
-  <div class="actions">
+  </p>
+  <p>
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>
