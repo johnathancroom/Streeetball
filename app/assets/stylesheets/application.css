@@ -58,11 +58,16 @@ textarea:focus {
   margin-right: 5px;
   top: 4px;
 }
+.profile .head a:hover {
+  text-decoration: underline;
+}
 .profile .head a.social {
   font-weight: bold;
 }
-.profile .head a:hover {
-  text-decoration: underline;
+.profile .head a.social:before {
+  left: -1px;
+  position: relative;
+  top: -3px;
 }
 .profile .head h1 {
   color: #7ca34f;
@@ -153,4 +158,32 @@ textarea:focus {
 }
 .single .new-comment textarea:focus {
   outline: none;
+}
+
+/* Icons */
+@font-face {
+	font-family: Scooby;
+	src: url('/fonts/scooby.eot');
+	src: url('/fonts/scooby.eot?#iefix') format('embedded-opentype'),
+		   url('/fonts/scooby.svg#Scooby') format('svg'),
+	   	 url('/fonts/scooby.woff') format('woff'),
+		   url('/fonts/scooby.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+	font-family: Scooby;
+	font-style: normal;
+}
+.icon-heart:before {
+	content: "\e000";
+}
+.icon-comments:before {
+	content: "\e001";
+}
+.icon-dribbble:before {
+	content: "\e002";
+}
+.icon-twitter:before {
+	content: "\e003";
 }

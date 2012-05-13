@@ -1,11 +1,11 @@
 <div class="profile">
-  <%= profile_image_tag @user, :class => "profile-image" %>
+  <%= profile_image_tag @user, :class => 'profile-image' %>
   
   <div class="head">
     <h1><%= @user.username %></h1>
     <%= link_to @user.location, '#' %>
-    <%= link_to_dribbble @user, :class => 'social' %>
-    <%= link_to_twitter @user, :class => 'social' %>
+    <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
+    <%= link_to_twitter @user, :class => 'social icon-twitter' %>
   </div>
   
   <p class="bio">
