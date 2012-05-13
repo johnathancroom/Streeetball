@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  before_filter :get_user, :only => [:show, :edit, :update]
+  
   before_filter :require_credentials, :only => [:edit, :update]
   before_filter :require_admin, :only => [:index, :destroy]
-  
-  before_filter :get_user, :only => [:show, :edit, :update]
   
   # GET /users
   # GET /users.json
@@ -18,8 +18,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.where('lower(username) = ?', params[:username].downcase).first
-    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -112,7 +110,11 @@ class UsersController < ApplicationController
     @user = User.where('lower(username) = ?', params[:username].downcase).first
     
     if params[:username] != @user.username
-      redirect_to @user, :status => 301
+      if params[:action] == "edit"
+        redirect_to edit_user_path(@user.username), :status => 301
+      else
+        redirect_to @user, :status => 301
+      end
     end
   end
 end
