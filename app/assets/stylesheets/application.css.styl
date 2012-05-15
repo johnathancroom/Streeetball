@@ -52,22 +52,22 @@ h1 {
   color: #f5f5f5;
   font-size: 18px;
   margin-bottom: 30px;
-  padding: 8px 0px 4px 0;
+  padding: 8px 0px 4px 0;/*
   //dividers
   &:before,
   &:after {
-    background1();
-    content:"";
-    height: 30px;
-    position: absolute;
-    right: 177px;
-    width: 1px;
+  background1();
+  content:"";
+  height: 30px;
+  position: absolute;
+  right: 177px;
+  width: 1px;
   }
   &:after {
-    background2();
-    top: 8px;
-    right: 176px;
-  }
+  background2();
+  top: 8px;
+  right: 176px;
+  }*/
 }
 .wrapper {
   margin: 0 auto;
@@ -92,21 +92,33 @@ h1 {
   0px 2px 0px rgba(0,0,0,0.1);
   vertical-align: middle;
   width: 300px;
-}
-.user-functions .profile-image,
-.user-functions .primary {
-    margin-right: 10px;
+  //dividers
+  &:before,
+  &:after {
+    background1();
+    content:"";
+    height: 30px;
+    position: absolute;
+    right: 50px;
+    top: 0px;
+    width: 1px;
+  }
+  &:after {
+    background2();
+    right: 49px;
+  }
 }
 .user-functions .profile-image {
   border: 2px solid #282828;
   border-radius: 0;
   box-shadow: 0px 1px 0px 0px #525252;
   top: -6px;
+  margin-right: 12px;
   width: 30px;
 }
 .user-functions a {
   left: 2px;
-  margin-left: 4px;
+  margin-left: 5px;
   text-transform: lowercase;
   &:hover {
     color: #fff;
