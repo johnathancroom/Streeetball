@@ -62,17 +62,6 @@ class UsersController < ApplicationController
   def update
     @params = params[:user]
 
-    # Profile image
-    if params[:user][:image_url] && @user.valid?
-      # Delete previous profile image
-      AWS::S3::S3Object.delete @user.image_url if @user.image_url
-      
-      # Amazonify profile image upload
-      filename = @user.username + "/profile_image" + File.extname(params[:user][:image_url].original_filename)
-      AWS::S3::S3Object.store filename, params[:user][:image_url].read, :access => :public_read
-      @params[:image_url] = filename
-    end
-
     respond_to do |format|
       if @user.update_attributes(@params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

@@ -1,7 +1,7 @@
 <div id="comments">
   <% @comments.each_with_index do |comment, index| %>
     <div class="comment<%= ' last' if index == @comments.count-1 %>">
-      <%= profile_image_tag comment.user, :class => 'profile-image' %>
+      <%= image_tag comment.user.avatar.url, :class => 'profile-image' %>
       <%= link_to comment.user.username, comment.user, :class => 'user' %>
       <p class="blurb"><%= comment.blurb %></p>
       <div class="time"><%= time_ago_in_words comment.created_at %> ago</div>

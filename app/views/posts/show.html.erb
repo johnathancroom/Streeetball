@@ -1,6 +1,6 @@
 <div class="single">
   <div class="post">
-    <%= s3_image_tag @post.image_url %>
+    <%= image_tag @post.image.url, :alt => @post.name %>
   </div>
   
   <h1><%= @post.name %></h1>

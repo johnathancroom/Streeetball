@@ -1,4 +1,4 @@
-<% if !logged_in %>
+<% if !logged_in && params[:controller] == 'posts' && params[:action] == 'index' %>
   <div class="preview">
     <%= image_tag "logo.png" %>
   </div>
@@ -7,7 +7,7 @@
 <div class="posts">
   <% @posts.each_with_index do |post, index| %>
     <%= raw '-->' if index != 0 %><div class="post">
-      <%= link_to (s3_image_tag post.image_url, :alt => post.name), post %>
+      <%= link_to image_tag(post.image.url(:small), :alt => post.name), post %>
     </div><%= raw '<!--' %>
   <% end %>
 </div>

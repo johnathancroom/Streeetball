@@ -53,15 +53,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     
     # Set user_id
-    @post.user_id = current_user.id 
-    
-    # if image was uploaded and post is valid
-    if params[:post][:image] && @post.valid?
-      # Amazonify upload from posts#new form
-      filename = @post.user.username + "/" + File.basename(params[:post][:image].original_filename, ".*") + "_" + Time.now.to_i.to_s + File.extname(params[:post][:image].original_filename)
-      AWS::S3::S3Object.store filename, params[:post][:image].read, :access => :public_read
-      @post.image_url = "#{filename}"
-    end
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save

@@ -1,7 +1,16 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username, :email, :email_confirmed, :bio, :image_url, :dribbble_username, :twitter_username, :location
+  attr_accessible :password, :username, :email, :email_confirmed, :bio, :avatar, :dribbble_username, :twitter_username, :location
+  
+  has_attached_file :avatar,
+    :storage => :s3, 
+    :s3_credentials => {
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
+    },
+    :bucket => ENV['S3_BUCKET'],
+    :path => ':username/avatar.:extension'
   
   attr_accessor :password
   before_save :encrypt_password

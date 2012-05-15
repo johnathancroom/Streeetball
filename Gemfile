@@ -36,8 +36,11 @@ end
 # Server
 gem 'thin'
 
-# Amazon S3
-gem 'aws-s3'
+# Amazon Web Services SDK
+gem 'aws-sdk'
+
+# Paperclip file uploading
+gem 'paperclip'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
