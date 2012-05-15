@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     # Add description to comments if it exists
     @description_comment = Comment.new({ :user_id => @post.user.id, :blurb => @post.description })
     @description_comment.created_at = @post.created_at
-    @comments = [@description_comment] + @comments if @post.description
+    @comments = [@description_comment] + @comments if @post.description != ''
 
     respond_to do |format|
       format.html # show.html.erb
