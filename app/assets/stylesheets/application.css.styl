@@ -189,7 +189,8 @@ input[type=file] {
   display: block;
   margin-bottom: 6px;
 }
-.submit {
+.submit,
+.preview .learn {
   background: darken($btnMain, 5%);
   border: none; //default! ugly culprit!
   border-radius: 4px;
@@ -203,8 +204,7 @@ input[type=file] {
 .preview {
   margin-bottom: 24px;
 }
-.preview p,
-.preview .learn {
+.preview p {
   color: #777;
   display: inline-block;
   font-size: 18px;
@@ -222,17 +222,20 @@ input[type=file] {
 .preview .players {
   color: $dribbble;
 }
-.preview .prospects,
-.preview .learn {
+.preview .prospects {
   color: darken($btnMain, 13%);
 }
 .preview .learn {
+  background: #a1a1a1;
+  border: 1px solid #999;
+  box-shadow: 
+    inset 0px 2px 0px 0px rgba(255,255,255, .1),
+    inset 0px -15px 0px -4px rgba(0,0,0, .08),
+    0px 1px 0px 0px #888;
+  padding: 6px 8px;
   position: absolute;  
   right: 0;
-}
-.preview .learn .ball {
-  left: -80px;
-  position: absolute;
+  text-shadow: 1px 1px 1px #777;
   top: -10px;
 }
 .profile-image {
