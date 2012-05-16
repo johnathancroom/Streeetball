@@ -26,7 +26,8 @@ h1, h2, h3, h4, h5, h6,
 .single .by a,
 .single .comment a.user,
 .profile .head h1,
-.preview span {
+.preview span,
+.preview a {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -188,8 +189,7 @@ input[type=file] {
   display: block;
   margin-bottom: 6px;
 }
-.submit,
-.preview .learn {
+.submit {
   background: darken($btnMain, 5%);
   border: none; //default! ugly culprit!
   border-radius: 4px;
@@ -203,34 +203,37 @@ input[type=file] {
 .preview {
   margin-bottom: 24px;
 }
-.preview p {
-  color: #555;
+.preview p,
+.preview .learn {
+  color: #777;
   display: inline-block;
   font-size: 18px;
   margin: 10px 0px 0px 0px;
-  text-shadow: 1px 1px 0px #f1f1f1;
-}
-.preview span {
-/*  color: #555;*/
+  text-shadow: 1px 1px 0px #fff;
 }
 .preview .ball {
   top: 0px;
   margin-right: 2px;
   position: relative;
 }
-.preview .dribbble {
+.preview .catch {
+  color: #666;
+}
+.preview .players {
   color: $dribbble;
 }
+.preview .prospects,
 .preview .learn {
-  background: #aeaeae;
-  margin: 6px 0px 0px 10px;
-  padding: 6px 8px;
-  position: absolute;
+  color: darken($btnMain, 13%);
+}
+.preview .learn {
+  position: absolute;  
   right: 0;
 }
-.preview .bounce {
-  right: 0;
+.preview .learn .ball {
+  left: -80px;
   position: absolute;
+  top: -10px;
 }
 .profile-image {
   border: 4px solid #FFF;
