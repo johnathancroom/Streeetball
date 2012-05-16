@@ -24,8 +24,7 @@
       </div>
     </div>
   </nav>
-  
-  <div class="wrapper">  
+  <div class="wrapper"> 
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :class => "flash_#{name}" %>
     <% end %>
@@ -34,6 +33,16 @@
 
     <%= yield %>
   </div>
+  
+  <footer>
+    <div class="wrapper">
+      <%= link_to (image_tag 'logo-nav.png'), root_path, :class => 'logo' %>
+      <div class="nav">
+        <a href="#">Browse</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+  </footer> 
   
   <%= javascript_include_tag 'application' %>
 </body>
