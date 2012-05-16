@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :password, :username, :email, :email_confirmed, :bio, :avatar, :dribbble_username, :twitter_username, :location
+  attr_accessible :password, :username, :email, :email_confirmed, :bio, :avatar, :dribbble_username, :twitter_username, :location, :crop_x, :crop_y, :crop_w, :crop_h
   
   has_attached_file :avatar,
     :storage => :s3, 
@@ -10,7 +10,15 @@ class User < ActiveRecord::Base
       :secret_access_key => ENV['S3_SECRET']
     },
     :bucket => ENV['S3_BUCKET'],
-    :path => ':username/avatar.:extension'
+    :s3_permissions => :public_read,
+    :path => ':username/avatar_:style.:extension',
+    :styles => {
+      :large => ['384x384>', :jpg],
+      :small => ['100x100>', :jpg]
+    },
+    :processors => [:cropper]
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_avatar, :if => :cropping?
   
   attr_accessor :password
   before_save :encrypt_password
@@ -44,5 +52,17 @@ class User < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+  
+  # Avatar Upload Cropping
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  def reprocess_avatar
+    avatar.reprocess!
+  end
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.to_file(style))
   end
 end

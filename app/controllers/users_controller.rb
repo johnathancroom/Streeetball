@@ -60,16 +60,16 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @params = params[:user]
-
-    respond_to do |format|
-      if @user.update_attributes(@params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
+    if @user.update_attributes(params[:user])
+      if params[:user][:avatar].blank?
+        flash[:notice] = 'You updated your profile, yo!'
+        redirect_to @user
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        flash[:notice] = 'Crop to your desire like a playa'
+        render :action => 'crop'
       end
+    else
+      render :action => 'edit'
     end
   end
 

@@ -1,0 +1,32 @@
+<h1>Crop your profile image</h1>
+
+<%= image_tag @user.avatar.url(:large), :id => 'js-crop' %>
+
+<%= form_for @user do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  
+  <br><%= f.submit 'Crop', :class => 'submit' %>
+<% end %>
+
+<% content_for (:javascript) do %>
+  <script type="text/javascript">
+  $(function() {
+    $("#js-crop").Jcrop({
+      onChange: update_crop,
+      onSelect: update_crop,
+      setSelect: [0, 0, 384, 384],
+      aspectRatio: 1
+    })
+    
+    function update_crop(coords) {
+      var ratio = <%= @user.avatar_geometry(:original).width %> / <%= @user.avatar_geometry(:large).width %>; 
+      $("#crop_x").val(Math.floor(coords.x * ratio));
+      $("#crop_y").val(Math.floor(coords.y * ratio));
+      $("#crop_w").val(Math.floor(coords.w * ratio));
+      $("#crop_h").val(Math.floor(coords.h * ratio));  
+    }
+  })
+  </script>
+<% end %>
