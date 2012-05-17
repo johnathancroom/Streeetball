@@ -1,6 +1,6 @@
 <h1>Crop your profile image</h1>
 
-<%= image_tag @user.avatar.url(:large), :id => 'js-crop' %>
+<%= image_tag @user.local_avatar.url(:large), :id => 'js-crop' %>
 
 <%= form_for @user do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>

@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     if @user.update_attributes(params[:user])
-      if params[:user][:avatar].blank?
+      if params[:user][:local_avatar].blank?
         flash[:notice] = 'You updated your profile, yo!'
         redirect_to @user
       else
