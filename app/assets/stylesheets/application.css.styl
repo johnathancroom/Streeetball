@@ -423,6 +423,7 @@ footer {
   box-shadow:
   inset 0px 1px 0px 0px #c7c7c7,
   inset 0px 12px 12px -12px rgba(0,0,0, .14);
+  margin-top: 18px;
   padding: 6px 0px 10px 0px;
 }
 footer .wrapper .logo {
@@ -431,19 +432,44 @@ footer .wrapper .logo {
 .more {
   background: url(pattern-main.png);
   border-radius: 50%;
-  border: 1px solid #c7c7c7;
+  border: 1px solid #c2c2c2;
   box-shadow:
   inset 0px -10px 12px -7px #fafafa,
-  0px 12px 12px -12px rgba(0,0,0, .14);
+  0px 12px 12px -12px rgba(0,0,0, .2);
   height: 0;
+  left: 44.35%; //middle?
   padding: 54px;
   position: absolute;
   top: -70px;
-  left: 44.35%; //middle?
   width: 0;
+  
+  &:before, 
+  &:after {
+    border-top: 12px solid #dadada;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    bottom: 20px;
+    content:"";
+    height: 0;
+    left: 41px;
+    position: absolute;
+    width: 0;
+  }
+  &:before,
+  &:hover:before {
+    border-top: 13px solid #cacaca;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    left: 40px; 
+  }
+  &:hover:before {
+    border-top: 13px solid #bababa;
+  }
+  &:hover:after {
+    border-top: 12px solid #cacaca;
+  }
 }
 footer .nav {
-  padding: 0;
   text-align: right;
 }
 footer .nav a {
