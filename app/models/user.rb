@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
     :bucket => ENV['S3_BUCKET'],
     :s3_permissions => :public_read,
     :path => ':username/avatar_:style.:extension',
+    :default_url => 'https://s3.amazonaws.com/streeetball-dev/default_profile_image.jpeg',
     :styles => avatar_styles,
     :processors => [:cropper]
   
