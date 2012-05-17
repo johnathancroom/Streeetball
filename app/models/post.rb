@@ -1,5 +1,15 @@
 class Post < ActiveRecord::Base
-  attr_accessible :name, :user_id, :image, :description
+  attr_accessible :name, :user_id, :local_image, :image, :description, :crop_x, :crop_y, :crop_w, :crop_h
+  
+  image_styles = {
+    :regular => ['400x300>'],
+    :small => ['192x144>']
+  }
+  has_attached_file :local_image,
+    :styles => image_styles,
+    :processors => [:cropper]
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  before_save :reprocess_image, :if => :cropping?
   
   has_attached_file :image,
     :storage => :s3, 
@@ -8,16 +18,29 @@ class Post < ActiveRecord::Base
       :secret_access_key => ENV['S3_SECRET']
     },
     :bucket => ENV['S3_BUCKET'],
+    :s3_permissions => :public_read,
     :path => ':post_username/:id/:basename_:style.:extension',
-    :styles => {
-      :original => ['400x300#', :jpg],
-      :small => ['192x144#', :jpg]
-    }
+    :styles => image_styles,
+    :processors => [:cropper]
   
   has_many :comments
   has_many :likes
   belongs_to :user
   
   validates_presence_of :name, :user_id
-  validates_attachment_presence :image
+  validates_attachment_presence :local_image
+  
+  # Avatar Upload Cropping
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+  def reprocess_image
+    local_image.reprocess!
+    self.image = local_image.to_file
+    self.local_image = nil
+  end
+  def image_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(local_image.to_file(style))
+  end
 end

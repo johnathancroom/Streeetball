@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  before_filter :require_login, :only => [:new, :create, :destroy]
-  before_filter :require_admin, :only => [:edit, :update]
+  before_filter :require_login, :only => [:new, :create, :destroy, :update]
+  before_filter :require_admin, :only => [:edit]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.reverse
+    @posts = Post.where('image_file_name != ""').reverse
 
     respond_to do |format|
       format.html # index.html.erb
@@ -55,14 +55,10 @@ class PostsController < ApplicationController
     # Set user_id
     @post.user_id = current_user.id
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render json: @post, status: :created, location: @post }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      render :action => 'crop', :notice => 'Crop to your desire like a playa'
+    else
+      render :new
     end
   end
 
@@ -73,7 +69,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Image was successfully posted.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

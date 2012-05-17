@@ -61,12 +61,10 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     if @user.update_attributes(params[:user])
-      if params[:user][:local_avatar].blank?
-        flash[:notice] = 'You updated your profile, yo!'
-        redirect_to @user
+      if params[:user][:local_avatar].present?
+        render :action => 'crop', :notice => 'Crop to your desire like a playa'
       else
-        flash[:notice] = 'Crop to your desire like a playa'
-        render :action => 'crop'
+        redirect_to @user, :notice => 'You updated your profile, yo!'
       end
     else
       render :action => 'edit'

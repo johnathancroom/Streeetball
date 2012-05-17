@@ -1,0 +1,32 @@
+<h1>Crop your image</h1>
+
+<%= image_tag @post.local_image.url(:regular), :id => 'js-crop' %>
+
+<%= form_for @post do |f| %>
+  <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+    <%= f.hidden_field attribute, :id => attribute %>
+  <% end %>
+  
+  <br><%= f.submit 'Crop', :class => 'submit' %>
+<% end %>
+
+<% content_for (:javascript) do %>
+  <script type="text/javascript">
+  $(function() {
+    $("#js-crop").Jcrop({
+      onChange: update_crop,
+      onSelect: update_crop,
+      setSelect: [0, 0, 400, 300],
+      aspectRatio: (4/3)
+    })
+    
+    function update_crop(coords) {
+      var ratio = <%= @post.image_geometry(:original).width %> / <%= @post.image_geometry(:regular).width %>; 
+      $("#crop_x").val(Math.floor(coords.x * ratio));
+      $("#crop_y").val(Math.floor(coords.y * ratio));
+      $("#crop_w").val(Math.floor(coords.w * ratio));
+      $("#crop_h").val(Math.floor(coords.h * ratio));  
+    }
+  })
+  </script>
+<% end %>
