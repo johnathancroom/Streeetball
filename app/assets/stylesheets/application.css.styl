@@ -445,7 +445,7 @@ footer .wrapper .logo {
   
   &:before, 
   &:after {
-    border-top: 12px solid #dadada;
+    border-top: 12px solid #dadada; //cacaca
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     bottom: 20px;
@@ -455,18 +455,18 @@ footer .wrapper .logo {
     position: absolute;
     width: 0;
   }
-  &:before,
+  &:before,  //shadow
   &:hover:before {
-    border-top: 13px solid #cacaca;
+    border-top: 13px solid #cacaca; //bababa
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
     left: 40px; 
   }
   &:hover:before {
-    border-top: 13px solid #bababa;
+    border-top: 13px solid #bababa; //a9a9a9
   }
   &:hover:after {
-    border-top: 12px solid #cacaca;
+    border-top: 12px solid #cacaca; //bbb
   }
 }
 footer .nav {
@@ -479,4 +479,8 @@ footer .nav a {
   top: -10px;
   text-shadow: 1px 1px 0px #fafafa;
   text-transform: lowercase;
+  
+  &:hover {
+     color: #a1a1a1; 
+  }
 }
