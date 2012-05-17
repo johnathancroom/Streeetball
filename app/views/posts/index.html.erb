@@ -1,6 +1,8 @@
 <% if !logged_in && params[:controller] == 'posts' && params[:action] == 'index' %>
   <div class="preview">
-    <%= image_tag "logo.png" %>
+    <p><span class="catch">As a <span class="players"><%= image_tag "dribbble-logo.png", :class =>'ball' %>Player</span>, finding prospects to invite is difficult.</span> 
+    Streeetball is show and tell for <span class="prospects"><%= image_tag "favicon.png", :class =>'ball' %>Prospects</span>.</p>
+    <a href="#" class="learn">Learn more</a>
   </div>
 <% end %>
 

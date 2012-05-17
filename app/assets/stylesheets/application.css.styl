@@ -24,7 +24,9 @@ body, input, textarea, select {
 h1, h2, h3, h4, h5, h6,
 .single .by a,
 .single .comment a.user,
-.profile .head h1 {
+.profile .head h1,
+.preview span,
+.preview a {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -39,6 +41,7 @@ a {
 h1 {
   color: #999;
   font-size: 20px;
+  letter-spacing: -1px;
 }
 .top-nav {
   background: url("noise.png");
@@ -50,23 +53,8 @@ h1 {
     0 4px 0 0 rgba(52,52,52,.04);
   color: #f5f5f5;
   font-size: 18px;
-  margin-bottom: 30px;
-  padding: 8px 0px 4px 0;/*
-  //dividers
-  &:before,
-  &:after {
-  background1();
-  content:"";
-  height: 30px;
-  position: absolute;
-  right: 177px;
-  width: 1px;
-  }
-  &:after {
-  background2();
-  top: 8px;
-  right: 176px;
-  }*/
+  margin-bottom: 24px;
+  padding: 8px 0px 4px 0;
 }
 .wrapper {
   margin: 0 auto;
@@ -144,7 +132,18 @@ h1 {
   //user-select: none;
   
   &:hover {
+    background: lighten($btnMain, 12%);
+    box-shadow:
+      inset 0px 2px 0px 0px rgba(255,255,255,0.2),
+      inset 0px -30px 40px -20px rgba(0,0,0,0.6),
+      inset 0px 1px 4px 1px rgba(255,255,255,0.1),
+      0px 0px 0px 1px rgba(0,0,0,0.1),
+      0px -1px 0px 0px rgba(0,0,0,0.2),
+      inset 0px 13px 0px 0px rgba(255,255,255,.1),
+      inset 0px -2px 0px 0px rgba(0,0,0,.1),
+      0px 0px 3px 0px rgba(0,0,0,0.3);
     text-decoration: none;
+    text-shadow: 0px 1px 2px rgba(0,0,0,0.6);
   }
   &:active { 
     background: $btnMain;
@@ -155,6 +154,7 @@ h1 {
       0px 0px 0px 1px rgba(0,0,0,0.1),
       0px -1px 0px 0px rgba(0,0,0,0.2),
       inset 0px -13px 0px 1px rgba(255,255,255,.1),
+      inset 0px -2px 0px 0px rgba(255,255,255,.15),
       0px 0px 3px 0px rgba(0,0,0,0.3);
   }
 }
@@ -201,7 +201,8 @@ input[type=file] {
   display: block;
   margin-bottom: 6px;
 }
-.submit {
+.submit,
+.preview .learn {
   background: darken($btnMain, 5%);
   border: none; //default! ugly culprit!
   border-radius: 4px;
@@ -213,7 +214,40 @@ input[type=file] {
   text-transform: lowercase;
 }
 .preview {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+}
+.preview p {
+  color: #777;
+  display: inline-block;
+  font-size: 18px;
+  margin: 10px 0px 0px 0px;
+  text-shadow: 1px 1px 0px #fff;
+}
+.preview .ball {
+/*  top: 0px;*/
+  margin-right: 2px;
+}
+.preview .catch {
+  color: #666;
+}
+.preview .players {
+  color: $dribbble;
+}
+.preview .prospects {
+  color: darken($btnMain, 13%);
+}
+.preview .learn {
+  background: #a1a1a1;
+  border: 1px solid #999;
+  box-shadow: 
+    inset 0px 2px 0px 0px rgba(255,255,255, .1),
+    inset 0px -15px 0px -4px rgba(0,0,0, .08),
+    0px 1px 0px 0px #888;
+  padding: 6px 8px;
+  position: absolute;  
+  right: 0;
+  text-shadow: 1px 1px 1px #777;
+  top: -10px;
 }
 .profile-image {
   border: 4px solid #FFF;
@@ -280,14 +314,14 @@ input[type=file] {
 }
 .single .post {
   left: -6px;
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
 }
 .single .post img {
   width: 400px;
 }
 .single h1 {
-  color: #616161;
-  font-size: 18px;
+  color: #595959;
+  font-size: 20px;
   margin: 0;
 }
 .single .details {
@@ -301,8 +335,9 @@ input[type=file] {
 }
 .single .by a,
 .single .comment a.user {
-  //////////////////////////
-}.single .by a {
+  font-size: 15px;
+}
+.single .by a {
   color: $textHlight;
 }
 .single .by a:hover {
@@ -387,4 +422,71 @@ input[type=file] {
 }
 .icon-twitter:before {
 	content: "\e003";
+}
+footer {
+  overflow: hidden;
+  background: url(pattern-footer.png);
+  box-shadow:
+  inset 0px 1px 0px 0px #c7c7c7,
+  inset 0px 12px 12px -12px rgba(0,0,0, .14);
+  margin-top: 18px;
+  padding: 6px 0px 10px 0px;
+}
+footer .wrapper .logo {
+  top: 10px;
+}
+.more {
+  background: url(pattern-main.png);
+  border-radius: 50%;
+  border: 1px solid #c2c2c2;
+  box-shadow:
+  inset 0px -10px 12px -7px #fafafa,
+  0px 12px 12px -12px rgba(0,0,0, .2);
+  height: 0;
+  left: 44.35%; //middle?
+  padding: 54px;
+  position: absolute;
+  top: -70px;
+  width: 0;
+  
+  &:before, 
+  &:after {
+    border-top: 12px solid #dadada; //cacaca
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    bottom: 20px;
+    content:"";
+    height: 0;
+    left: 41px;
+    position: absolute;
+    width: 0;
+  }
+  &:before,  //shadow
+  &:hover:before {
+    border-top: 13px solid #cacaca; //bababa
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    left: 40px; 
+  }
+  &:hover:before {
+    border-top: 13px solid #bababa; //a9a9a9
+  }
+  &:hover:after {
+    border-top: 12px solid #cacaca; //bbb
+  }
+}
+footer .nav {
+  text-align: right;
+}
+footer .nav a {
+  color: #bababa;
+  font-size: 14px;
+  margin-left: 26px;
+  top: -10px;
+  text-shadow: 1px 1px 0px #fafafa;
+  text-transform: lowercase;
+  
+  &:hover {
+     color: #a1a1a1; 
+  }
 }

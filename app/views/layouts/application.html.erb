@@ -35,6 +35,17 @@
     <%= yield %>
   </div>
   
+  <footer>
+    <div class="wrapper">
+      <%= link_to (image_tag 'logo-footer.png'), root_path, :class => 'logo' %>
+      <a href="#" class="more"></a>
+      <div class="nav">
+        <a href="#">Browse</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+  </footer> 
+  
   <%= javascript_include_tag 'application' %>
   <%= yield(:javascript) %>
 </body>
