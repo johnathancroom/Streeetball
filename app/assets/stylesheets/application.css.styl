@@ -214,13 +214,15 @@ input[type=file] {
   text-transform: lowercase;
 }
 .preview {
-  margin-bottom: 24px;
+  border-bottom: 1px solid #dfdfdf;
+  margin: 24px 0px 20px 0px;
+  padding-bottom: 20px;
+/*  margin:  24px 0;*/
 }
 .preview p {
   color: #777;
   display: inline-block;
   font-size: 18px;
-  margin: 10px 0px 0px 0px;
   text-shadow: 1px 1px 0px #fff;
 }
 .preview .ball {
@@ -244,10 +246,24 @@ input[type=file] {
     inset 0px -15px 0px -4px rgba(0,0,0, .08),
     0px 1px 0px 0px #888;
   padding: 6px 8px;
-  position: absolute;  
-  right: 0;
+  left: 10px;
   text-shadow: 1px 1px 1px #777;
-  top: -10px;
+  
+  &:hover,
+  &:active {
+    background: lighten(#a1a1a1, 5%);
+    border: 1px solid darken(#999, 5%);
+    box-shadow: 
+      inset 0px 2px 0px 0px rgba(255,255,255, .15),
+      inset 0px -15px 0px -4px rgba(0,0,0, .08),
+      0px 1px 0px 0px #888;    
+  }
+  &:active {
+    box-shadow: 
+      inset 0px 2px 0px 0px rgba(255,255,255, .1),
+      inset 0px 15px 0px -4px rgba(0,0,0, .05),
+      0px 1px 0px 0px #777;
+  }
 }
 .profile-image {
   border: 4px solid #FFF;
@@ -448,6 +464,7 @@ footer .wrapper .logo {
   position: absolute;
   top: -70px;
   width: 0;
+  z-index: 5;
   
   &:before, 
   &:after {
