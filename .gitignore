@@ -17,3 +17,4 @@
 # Other stuff
 .DS_Store
 config/env_vars.rb
+public/system/*
