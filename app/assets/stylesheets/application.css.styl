@@ -45,17 +45,15 @@ h1 {
   margin-bottom: 20px;
 }
 .top-nav {
-  background: url("noise.png");
-  border-bottom: 1px solid #000;
+  background: url("pattern-header.png");
+  border-bottom: 1px solid #c7c7c7;
   box-shadow:
-    0px 1px 0 0 #999,
-    inset 0px -67px 28px -40px rgba(0,0,0,.3),
-    inset 0px -1px 0 0 rgba(255,255,255,.2),
-    0 4px 0 0 rgba(52,52,52,.04);
+    inset 0px 67px 28px -40px rgba(255,255,255, .6),
+    0px 1px 6px 0px rgba(0, 0, 0, 0.12);
   color: #f5f5f5;
   font-size: 18px;
   margin-bottom: 24px;
-  padding: 8px 0px 4px 0;
+  padding: 20px 0px 14px 0;
 }
 .wrapper {
   margin: 0 auto;
@@ -66,20 +64,13 @@ h1 {
   top: -3px;
 }
 .user-functions {
-  color: #dedede;
+  color: #808080;
   float: right;
   font-size: 13px;
   padding-top: 5px;
   text-align: right;
   text-decoration: none;
-  text-shadow: 
-  -1px -1px 0px rgba(0,0,0,0.1),
-  1px -1px 0px rgba(0,0,0,0.1),
-  -1px 1px 0px rgba(0,0,0,0.1),
-  1px 1px 0px rgba(0,0,0,0.1),
-  0px 2px 0px rgba(0,0,0,0.1);
-/*  vertical-align: middle;*/
-/*  width: 300px;*/
+  
   //dividers
   &:before,
   &:after {
@@ -109,7 +100,7 @@ h1 {
   margin-left: 5px;
   text-transform: lowercase;
   &:hover {
-    color: #fff;
+    color: #999;
   }
 }
 .user-functions .primary {
@@ -117,10 +108,9 @@ h1 {
   border-radius: 4px;
   box-shadow:
     inset 0px 1px 0px 0px rgba(255,255,255,0.3),
-    inset 0px -30px 40px -20px rgba(0,0,0,0.6),
+    inset 0px -30px 40px -20px rgba(0,0,0,0.5),
     inset 0px 0px 3px 0px rgba(255,255,255,0.3),
-    0px 0px 0px 1px rgba(0,0,0,0.1),
-    0px -1px 0px 0px rgba(0,0,0,0.2),
+    0px 0px 0px 1px darken($btnMain, 20%),
     inset 0px 13px 0px 0px rgba(255,255,255,.1),
     0px 0px 3px 0px rgba(0,0,0,0.3);
   color: #FFF;
@@ -136,13 +126,13 @@ h1 {
     background: lighten($btnMain, 12%);
     box-shadow:
       inset 0px 2px 0px 0px rgba(255,255,255,0.2),
-      inset 0px -30px 40px -20px rgba(0,0,0,0.6),
+      inset 0px -30px 40px -20px rgba(0,0,0,0.5),
       inset 0px 1px 4px 1px rgba(255,255,255,0.1),
-      0px 0px 0px 1px rgba(0,0,0,0.1),
-      0px -1px 0px 0px rgba(0,0,0,0.2),
+      0px 0px 0px 1px darken($btnMain, 20%),
       inset 0px 13px 0px 0px rgba(255,255,255,.1),
       inset 0px -2px 0px 0px rgba(0,0,0,.1),
       0px 0px 3px 0px rgba(0,0,0,0.3);
+    color: #FFF;
     text-decoration: none;
     text-shadow: 0px 1px 2px rgba(0,0,0,0.6);
   }
@@ -152,11 +142,11 @@ h1 {
       inset 0px 1px 0px 0px rgba(255,255,255,0.3),
       inset 0px 30px 40px -20px rgba(0,0,0,0.18),
       inset 0px 0px 3px 0px rgba(255,255,255,0.3),
-      0px 0px 0px 1px rgba(0,0,0,0.1),
-      0px -1px 0px 0px rgba(0,0,0,0.2),
+      0px 0px 0px 1px darken($btnMain, 20%),
       inset 0px -13px 0px 1px rgba(255,255,255,.1),
       inset 0px -2px 0px 0px rgba(255,255,255,.15),
       0px 0px 3px 0px rgba(0,0,0,0.3);
+    color: #FFF;
   }
 }
 .flash_notice {
@@ -223,10 +213,10 @@ input[type=file] {
   text-transform: lowercase;
 }
 .preview {
-  border-bottom: 1px solid #dfdfdf;
+/*  border-bottom: 1px solid #dfdfdf;
   margin: 24px 0px 20px 0px;
-  padding-bottom: 20px;
-/*  margin:  24px 0;*/
+  padding-bottom: 20px;*/
+  margin:  24px 0;
 }
 .preview p {
   color: #777;
