@@ -25,7 +25,8 @@ h2, h3, h4, h5, h6,
 .single .by a,
 .single .comment a.user,
 .profile .head h1,
-.preview span {
+.preview span,
+.new {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -99,11 +100,11 @@ textarea {
   }
 }
 .user-functions .profile-image {
-  border: 2px solid #282828;
+  border: 2px solid #bababa;
   border-radius: 0;
-  box-shadow: 0px 1px 0px 0px #525252;
+  box-shadow: 0px 1px 0px 0px #fff;
   top: -6px;
-  margin-right: 12px;
+  margin-right: 6px;
   width: 30px;
 }
 .user-functions a {
@@ -114,8 +115,9 @@ textarea {
     color: #999;
   }
 }
-.submit,
-.user-functions .primary {
+.user-functions .primary,
+.user-functions .new,
+.submit {
   background: lighten($btnMain, 10%);
   border-radius: 4px;
   box-shadow:
@@ -160,6 +162,11 @@ textarea {
       0px 0px 3px 0px rgba(0,0,0,0.3);
     color: #FFF;
   }
+}
+.user-functions .new {
+  font-size: 28px;
+  margin-right: 14px;
+  padding: 0px 7px 1px 7px;
 }
 .flash_notice {
   color: green;

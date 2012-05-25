@@ -15,6 +15,7 @@
       <div class="user-functions">
         <% if logged_in %>
           <%= link_to (image_tag current_user.avatar.url(:small), :class => 'profile-image'), current_user %>
+          <a href="http://localhost:5000/posts/new" class="new">+</a>
           <%#= link_to "Upload", new_post_path, :class => 'primary' %>
           <%= link_to "Sign out", signout_path %>
         <% else %>
