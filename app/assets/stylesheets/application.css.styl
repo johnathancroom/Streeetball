@@ -122,7 +122,7 @@ textarea {
   border-radius: 4px;
   box-shadow:
     inset 0px 1px 0px 0px rgba(255,255,255,0.3),
-    inset 0px -30px 40px -20px rgba(0,0,0,0.5),
+    inset 0px -30px 40px -20px rgba(0,0,0,0.4),
     inset 0px 0px 3px 0px rgba(255,255,255,0.3),
     0px 0px 0px 1px darken($btnMain, 20%),
     inset 0px 13px 0px 0px rgba(255,255,255,.1),
@@ -140,7 +140,7 @@ textarea {
     background: lighten($btnMain, 12%);
     box-shadow:
       inset 0px 2px 0px 0px rgba(255,255,255,0.2),
-      inset 0px -30px 40px -20px rgba(0,0,0,0.5),
+      inset 0px -30px 40px -20px rgba(0,0,0,0.4),
       inset 0px 1px 4px 1px rgba(255,255,255,0.1),
       0px 0px 0px 1px darken($btnMain, 20%),
       inset 0px 13px 0px 0px rgba(255,255,255,.1),
@@ -164,9 +164,10 @@ textarea {
   }
 }
 .user-functions .new {
-  font-size: 28px;
+  font-size: 26px;
   margin-right: 14px;
-  padding: 0px 7px 1px 7px;
+  padding: 1px 8px 2px 8px;
+  border-radius: 3px;
 }
 .flash_notice {
   color: green;
@@ -296,14 +297,20 @@ input[type=password] {
 .profile {
   color: #adadad;
   height: 110px; /* .profile-image + 20px */
+  margin: 38px 0 14px 0;
+}
+.profile .head {
+  padding-top: 4px;
 }
 .profile .head a {
-  font-size: 12px;
-  margin-right: 5px;
+  color: #a7a7a7;
+  font-size: 13px;
+  margin-right: 10px;
   top: 3px;
 }
 .profile .head a:hover {
-  text-decoration: underline;
+/*   text-decoration: underline; */
+  color: #757575;
 }
 .profile .head a.social {
   font-weight: bold;
@@ -317,20 +324,24 @@ input[type=password] {
 .profile .head h1 {
   color: $textHlight;
   float: left;
-  font-size: 16px;
-  margin: 0 10px 0 0;
+  font-size: 20px;
+  margin: 0 6px 0 0;
+  top: -2px;
 }
 .profile p {
   font-size: 13px;
 }
 .profile .profile-image {
   float: left;
-  margin-right: 10px;
+  margin: 0px 20px 0px 0px;
   width: 90px;
 }
 .profile .bio {
+  color: #666;
+  font-size: 14px;
   line-height: 1.5em;
-  margin-top: 5px;
+  margin-top: 10px;
+  text-shadow: none;
 }
 .post {
   background: #fafafa;
