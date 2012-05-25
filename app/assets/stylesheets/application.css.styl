@@ -21,7 +21,7 @@
 body, input, textarea, select {
   font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
 }
-h1, h2, h3, h4, h5, h6,
+h2, h3, h4, h5, h6,
 .single .by a,
 .single .comment a.user,
 .profile .head h1,
@@ -31,17 +31,29 @@ h1, h2, h3, h4, h5, h6,
 }
 body {
   background: url("pattern-main.png") #f5f5f5;
-  text-shadow: 1px 1px 0 #FFF;
+  text-shadow: 0px 1px 0 #FFF;
 }
 a {
   color: inherit;
   font: inherit;
 }
 h1 {
-  color: #999;
+  color: #808080;
   font-size: 20px;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
+  letter-spacing: -1px; //0
+  margin-bottom: 14px;
+}
+h1,
+form {
+  max-width: 320px;
+  margin: 0 auto;
+}
+textarea {
+  border-radius: 2px;
+  height: 100px;
+  max-width: 100%;
+  padding: 6px;
+  width: 100%;
 }
 .top-nav {
   background: url("pattern-header.png");
@@ -102,6 +114,7 @@ h1 {
     color: #999;
   }
 }
+.submit,
 .user-functions .primary {
   background: lighten($btnMain, 10%);
   border-radius: 4px;
@@ -155,61 +168,66 @@ h1 {
 .flash_error {
   color: red;
 }
-input[type=text],
-input[type=password],
-textarea {
-  background: rgba(0,0,0,0.02);
-  border: 1px solid #FFF;
-  box-shadow: inset 0 1px 0 1px #D1D1D1;
-  color: #7a7a7a;
-  font-size: 13px;
-  
-  &:focus {
-    // Needs focus styles
-    outline: none;
-  }
-}
-textarea {
-  border-radius: 2px;
-  height: 100px;
-  max-width: 100%;
-  padding: 6px;
-  width: 100%;
-}
-input[type=text],
-input[type=password] {
-  border-radius: 3px;
-  display: inline-block;
-  height: 18px;
-  margin-top: 12px;
-  max-width: 40%;
-  padding: 10px;
-  text-shadow: 0px 1px 0px #eee;
-  width: 40%;
-  
-  &:focus {
-    background: #ededed;
-  }
-}
 textarea,
 input[type=text],
 input[type=password],
 input[type=submit],
 input[type=file] {
   display: block;
-  margin-bottom: 6px;
+/*   text-shadow: none; */
+}
+textarea,
+input[type=text],
+input[type=password]  {
+  background: rgba(0,0,0,0.02);
+  border: 1px solid #FFF;
+  box-shadow: inset 0 1px 0 1px #D1D1D1;
+  color: #7a7a7a;
+  font-size: 13px;
+  margin-top: 16px;
+  
+  &:focus {
+    // Needs focus styles
+    outline: none;
+  }
+}
+input[type=text],
+input[type=password] {
+  border-radius: 2px;
+  display: inline-block;
+  height: 18px;
+/*   margin-top: 12px; */
+/*   max-width: 35%; */
+  padding: 8px;
+  text-shadow: 0px 1px 0px #eee;
+  width: 100%;
+  
+  &:focus {
+    background: #ededed;
+  }
 }
 .submit,
 .preview .learn {
-  background: darken($btnMain, 5%);
   border: none; //default! ugly culprit!
-  border-radius: 4px;
-  color: #fff;
   font-size: 13px;
-  margin-top: 14px;
-  padding: 8px 10px;
-  text-shadow: 0px 1px 0px darken($textHlight, 10%);
   text-transform: lowercase;
+}
+.submit {
+  margin: 12px 0 30px 0;
+}
+.forgot {
+  color: #808080;
+  font-size: 14px;
+  position: absolute;
+  right: 140px;
+  top: 122px;
+  text-shadow: none;
+  text-transform: lowercase;
+  
+  &:hover {
+/*     color: #999; */
+    text-decoration: underline;
+  }
 }
 .preview {
 /*  border-bottom: 1px solid #dfdfdf;
@@ -223,7 +241,7 @@ input[type=file] {
   color: #707070;
   display: inline-block;
   font-size: 13px;
-  text-shadow: 1px 1px 0px #fff;
+  text-shadow: 1px 1px 0px #eee;
 }
 .preview .ball {
   top: -3px;
@@ -233,17 +251,19 @@ input[type=file] {
   color: #656565;
   font-size: 16px;
 }
-.submit,
 .preview .learn {
   background: #b1b1b1;
   border: 1px solid #999;
+  border-radius: 4px;
   box-shadow: 
     inset 0px 2px 0px 0px rgba(255,255,255, .1),
     inset 0px -10px 5px 0px rgba(0,0,0, .08),
     0px 1px 0px 0px #888;
+  color: #fff;
+  margin-top: 14px;
   padding: 6px 8px;
-  text-shadow: 1px 1px 1px #777;
   top: 18px;
+  text-shadow: 1px 1px 1px #777;
   
   &:hover,
   &:active {
