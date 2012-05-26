@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
   
+  before_create { generate_token(:auth_token) }
+  
   has_many :posts
   has_many :likes
   has_many :comments
@@ -45,7 +47,7 @@ class User < ActiveRecord::Base
   
   # Auth
   def self.authenticate(person, password)
-    if user = where("lower(email) = ?", person.downcase).first || user = where("lower(username) = ?", person.downcase).first # check username or email
+    if user = where("lower(email) = lower(?)", person).first || user = where("lower(username) = lower(?)", person).first # check username or email
       if user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt) # check password
         user # return user
       end
@@ -58,6 +60,13 @@ class User < ActiveRecord::Base
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
+  end
+  
+  # Generate auth_token
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
   end
   
   # Avatar Upload Cropping

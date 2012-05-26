@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517020355) do
+ActiveRecord::Schema.define(:version => 20120526182438) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20120517020355) do
     t.string   "location"
     t.string   "avatar_file_name"
     t.string   "local_avatar_file_name"
+    t.string   "auth_token"
   end
 
 end

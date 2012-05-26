@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:user], params[:password])
       if user.email_confirmed
-        session[:user_id] = user.id
+        cookies.permanent[:auth_token] = user.auth_token
         redirect_to root_url, :notice => 'Signed in!'
       else
         redirect_to verify_path
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session[:user_id] = nil
+    cookies.delete(:auth_token)
     redirect_to :back, :notice => 'Signed out!'
   end
 end
