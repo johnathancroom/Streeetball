@@ -1,11 +1,22 @@
 <% if !logged_in && params[:controller] == 'posts' && params[:action] == 'index' %>
   <div class="preview">
-    <p><span class="catch"><%= image_tag "logo-intro.png", :class =>'ball' %> is giving players more time to play.</span>
-    <br> 
-    Cabbage swede west indian gherkin tinda fat drumstick; garden rocket ocra. 
-    Greater Plantain common bean pea cauliflower squash; good king henry. 
-    Florence fennel - tinda spinach!</p>
-    <%= link_to 'Learn more', about_path, :class => 'learn' %>
+    <div class="illustrations">
+      <%= image_tag '', :alt => 'Prospect illustration', :width => 200, :height => 150, :id => 'js-prospect' %>
+      <%= image_tag '', :alt => 'Player illustration', :width => 200, :height => 150, :id => 'js-player' %>
+    </div><!--
+  
+    --><div class="details">
+      <p class="prospect">
+        Prospect stuff
+      </p>
+      <p class="player">
+        <span class="catch"><%= image_tag 'logo-intro.png', :alt => 'Streeetball', :class =>'ball' %> is giving players more time to play.</span>
+        Cabbage swede west indian gherkin tinda fat drumstick; garden rocket ocra. <span class="icon-prospect">Prospect</span>
+        Greater Plantain common bean pea cauliflower squash; good king henry. <span class="icon-player">Player</span>
+        Florence fennel - tinda spinach!
+      </p>
+      <%= link_to 'Learn more', about_path, :class => 'learn' %>
+    </div>
   </div>
 <% end %>
 

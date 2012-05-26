@@ -1,3 +1,4 @@
+// Like button
 var likeButton = $(".js-post-like")
 likeButton.on("click", function(e) {
   e.preventDefault() // Don't follow link
@@ -31,4 +32,14 @@ likeButton.on("click", function(e) {
       throwError(xhr);
     }
   })
+})
+
+// Preview illustrations
+$("#js-player").on("hover", function() {
+  $(".preview .details .player").show();
+  $(".preview .details .prospect").hide();
+})
+$("#js-prospect").on("hover", function() {
+  $(".preview .details .player").hide();
+  $(".preview .details .prospect").show();
 })

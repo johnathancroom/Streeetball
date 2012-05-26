@@ -249,12 +249,18 @@ input[type=password] {
   }
 }
 .preview {
-/*  border-bottom: 1px solid #dfdfdf;
-  margin: 24px 0px 20px 0px;
-  padding-bottom: 20px;*/
+  border-bottom: 1px solid #dfdfdf;
   line-height: 24px;
-  margin:  44px 20px 64px 462px;
-/*  max-width: 428px;*/
+  margin:  44px 0px 32px 0px;
+  padding-bottom: 32px;
+}
+.preview .illustrations,
+.preview .details {
+  display: inline-block;
+  width: 50%;
+}
+.preview .illustrations img:first-child {
+  margin-right: 15px;
 }
 .preview p {
   color: #707070;
@@ -270,6 +276,29 @@ input[type=password] {
   color: #656565;
   font-size: 16px;
 }
+.preview .icon-prospect,
+.preview .icon-player {
+  padding-left: 19px;
+  
+  &:before {
+    background-repeat: no-repeat;
+    content: "";
+    height: 17px;
+    left: 0px;
+    position: absolute;
+    top: -2px;
+    width: 17px;
+  }
+}
+.preview .icon-prospect:before {
+  background-image: url("favicon.png");
+}
+.preview .icon-player:before {
+  background-image: url("dribbble-logo.png");
+}
+.preview .details .player {
+  display: none;
+}
 .preview .learn {
   background: #b1b1b1;
   border: 1px solid #999;
@@ -279,8 +308,10 @@ input[type=password] {
     inset 0px -10px 5px 0px rgba(0,0,0, .08),
     0px 1px 0px 0px #888;
   color: #fff;
+  display: block;
+  float: right;
   margin-top: 14px;
-  padding: 6px 8px;
+  padding: 0px 8px;
   top: 18px;
   text-shadow: 1px 1px 1px #777;
   
