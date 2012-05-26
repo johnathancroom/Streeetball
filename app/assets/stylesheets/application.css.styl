@@ -54,6 +54,15 @@ form,
   max-width: 320px;
   margin: 0 auto;
 }
+h1.crop,
+.edit_post {
+  max-width: 400px;
+}
+label {
+  color: #999;
+  font-size: 13px;
+  text-shadow: none;
+}
 textarea {
   border-radius: 2px;
   height: 100px;
@@ -183,6 +192,7 @@ input[type=password],
 input[type=submit],
 input[type=file] {
   display: block;
+  line-height: 18px;
 /*   text-shadow: none; */
 }
 textarea,
@@ -376,11 +386,12 @@ input[type=password] {
   margin-top: 10px;
   text-shadow: none;
 }
+.edit_user textarea,
+.edit_user input {
+  margin: 4px 0 18px 0;
+}
 .upload {
   margin: 16px 0px;
-}
-.upload label {
-  color: #656565;
 }
 .upload input {
   color: #656565;
@@ -393,10 +404,12 @@ input[type=password] {
   margin: 14px 0 14px 20px;
   text-shadow: none;
 }
-.upload .submit {
+.upload .submit,
+.edit_user .submit {
   padding: 6px 10px 8px 10px;
 }
 .jcrop-holder {
+  max-width: 400px;
   margin-top: 20px;
 }
 .post {
