@@ -563,29 +563,47 @@ footer {
   background: url(pattern-footer.png);
   bottom: 0;
   box-shadow:
-  inset 0px 1px 0px 0px #c7c7c7,
-  inset 0px 12px 12px -12px rgba(0,0,0, .14);
+    inset 0px 1px 0px 0px #c7c7c7,
+    inset 0px 12px 12px -12px rgba(0,0,0, .14);
   margin-top: 18px;
-  padding: 6px 0px 10px 0px;
+  padding: 24px 0px 18px 0px;
   width: 100%;
 }
-footer .wrapper .logo {
-  top: 10px;
+footer nav {
+  padding-top: 2px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+}
+footer nav a {
+  color: #bababa;
+  font-size: 14px;
+  margin-left: 26px;
+  text-shadow: 1px 1px 0px #fafafa;
+  text-transform: lowercase;
+  
+  &:hover {
+     color: #a1a1a1; 
+  }
+}
+footer .logo {
+  margin: 0;
 }
 .more {
   background: url(pattern-main.png);
   border-radius: 50%;
   border: 1px solid #c2c2c2;
   box-shadow:
-  inset 0px -10px 12px -7px #fafafa,
-  0px 12px 12px -12px rgba(0,0,0, .2);
+    inset 0px -10px 12px -7px #fafafa,
+    0px 12px 12px -12px rgba(0,0,0, .2);
   height: 0;
   left: 44.35%; //middle?
   padding: 54px;
   position: absolute;
-  top: -70px;
+  top: -80px;
   width: 0;
-  z-index: 5;
+  z-index: 2;
   
   &:before, 
   &:after {
@@ -611,20 +629,5 @@ footer .wrapper .logo {
   }
   &:hover:after {
     border-top: 12px solid #cacaca; //bbb
-  }
-}
-footer .nav {
-  text-align: right;
-}
-footer .nav a {
-  color: #bababa;
-  font-size: 14px;
-  margin-left: 26px;
-  top: -10px;
-  text-shadow: 1px 1px 0px #fafafa;
-  text-transform: lowercase;
-  
-  &:hover {
-     color: #a1a1a1; 
   }
 }
