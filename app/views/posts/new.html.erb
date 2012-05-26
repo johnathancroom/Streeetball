@@ -5,12 +5,19 @@
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+      <%# Subtract one from count because local_image_file_name is taken out %>
+      <h2><%= pluralize(@post.errors.count-1, "error") %> prohibited this post from being saved:</h2>
+      
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @post.errors.keys.each do |field| %>
+          <% @post.errors[field].each do |msg| %>
+            <% if [:local_image, :local_image_file_name, :created_at].include?(field) # Custom error messages %>
+              <%= content_tag :li, msg if ![:local_image_file_name].include?(field) %>
+            <% else %>
+              <%= content_tag :li, field.to_s.capitalize + " " + msg %></li>
+            <% end %>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   <% end %>
