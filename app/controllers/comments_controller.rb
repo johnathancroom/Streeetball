@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to post_path(@comment.post_id), notice: 'Comment posted.' }
       else
-        format.html { redirect_to post_path(@comment.post_id), alert: 'Something went wrong when commenting' }
+        format.html { redirect_to post_path(@comment.post_id), alert: 'You can\'t comment with a blank message!' }
       end
     end
   end
