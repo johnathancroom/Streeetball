@@ -16,9 +16,9 @@
   <% end %>
 
     <%= f.text_field :name, :placeholder => 'Name' %>
-    <%= f.text_area :description, :placeholder => 'Description' %>
+    <%= f.text_area :description, :placeholder => 'Description (not required)' %>
     
-    <%= f.label :local_image %>
+    <%= f.label :local_image, 'Image' %>
     <%= f.file_field :local_image %>
 
     <%= f.submit 'Submit', :class => 'submit' %>
