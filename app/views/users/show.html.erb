@@ -6,15 +6,17 @@
   <div class="head">
     <h1><%= @user.username %></h1>
     <%= link_to @user.location, '#' %>
-    <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
+    <%#= link_to_dribbble @user, :class => 'social icon-dribbble' %>
     <%= link_to_twitter @user, :class => 'social icon-twitter' %>    
     
-    <% if current_user && current_user.id == @user.id %>
-      <%= link_to_dribbble @user, :class => 'social icon-dribbble2' %>
-      <%= link_to 'Edit', edit_user_path(@user) %>
-    <% else %>
-      <%= link_to_dribbble @user, :class => 'social icon-dribbble2' %>
-    <% end %>
+    <div class="functions">
+      <% if current_user && current_user.id == @user.id %>
+        <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
+        <%= link_to 'Edit profile', edit_user_path(@user), :class => 'social'%>
+      <% else %>
+        <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
+      <% end %>
+    </div>
     
   </div>
   

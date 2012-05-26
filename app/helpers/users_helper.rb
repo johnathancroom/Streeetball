@@ -1,7 +1,7 @@
 module UsersHelper
   def link_to_dribbble(user, options= {})
     if user.dribbble_username && !user.dribbble_username.empty?
-      link_to user.dribbble_username, "http://dribbble.com/#{user.dribbble_username}", options
+      link_to ' Dribbble', "http://dribbble.com/#{user.dribbble_username}", options
     end
   end
   
@@ -11,3 +11,4 @@ module UsersHelper
     end
   end
 end
+

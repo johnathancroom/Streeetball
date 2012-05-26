@@ -28,6 +28,7 @@ h2, h3, h4, h5, h6,
 .single .by a,
 .single .comment a.user,
 .profile .head h1,
+.profile .head .functions,
 .preview span,
 .new {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
@@ -332,6 +333,28 @@ input[type=password] {
   font-size: 20px;
   margin: 0 6px 0 0;
   top: -2px;
+}
+.profile .head .functions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-transform: lowercase;
+}
+.profile .head .functions a {
+  background: #a1a1a1;
+  border-radius: 3px;
+  box-shadow:
+  inset 0px 1px 0px 0px rgba(0,0,0, .1),
+  0px 1px 0px 0px rgba(255,255,355, 1);
+  color: #fff;
+  letter-spacing: -1px;
+  padding: 4px 6px;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .2);
+}
+.profile .head .functions .icon-dribbble {
+  background: lighten($dribbble, 16%);
+  padding: 4px 6px 5px 6px;
+  text-shadow: 0px 1px 0px rgba(0,0,0, .1);
 }
 .profile p {
   font-size: 13px;
