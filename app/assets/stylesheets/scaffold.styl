@@ -28,3 +28,22 @@
   font-size: 12px;
   list-style: square;
 }
+
+[class^="flash_"], [class*=" flash_"] {
+  border: 2px solid #f00;
+  border-radius: 3px;
+  margin-bottom: 25px;
+  padding: 8px;
+  text-shadow: none;
+}
+.flash_alert,
+.flash_error {
+  background-color: lighten(#f00, 90%);
+  border-color: #f00;
+  color: #f00;
+}
+.flash_notice {
+  background-color: lighten(#0f0, 90%);
+  border-color: #0f0;
+  color: #0f0;
+}
