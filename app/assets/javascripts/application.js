@@ -51,7 +51,7 @@ $(document).ready(function() {
       })
     }
   }
-  setTimeout(function() {
+  setInterval(function() {
     adjustFooter()
   }, 100)
   $(window).resize(function() {
