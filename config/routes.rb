@@ -1,10 +1,12 @@
 Streeetball::Application.routes.draw do
 
+  get 'about' => 'pages#about', :as => 'about'
+
   resources :posts, :except => [:index] do
-      post 'comments' => 'comments#create'
-      member do
-        post 'like' => 'posts#like'
-      end
+    post 'comments' => 'comments#create'
+    member do
+      post 'like' => 'posts#like'
+    end
   end
 
   get 'signin' => 'sessions#new', :as => 'signin'
@@ -24,7 +26,7 @@ Streeetball::Application.routes.draw do
   
   resources :users
 
-  root :to => 'posts#index'
+  root :to => 'posts#index', :as => 'posts'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -28,7 +28,7 @@ $(document).ready(function() {
     var windowHeight = $(window).height()
     var contentHeight = $("body").height()
     
-    var extraHeight;
+    var extraHeight = 0;
     if($("footer").css("position") == "fixed")
     {
       extraHeight = $("footer").height() + 35
@@ -51,8 +51,7 @@ $(document).ready(function() {
       })
     }
   }
-  adjustFooter()
-  $(window).resize(function() {
+  setTimeout(function() {
     adjustFooter()
-  })
+  }, 100)
 })
