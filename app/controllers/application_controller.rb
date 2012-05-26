@@ -26,4 +26,9 @@ class ApplicationController < ActionController::Base
   def require_admin
     render :text => "Admin only, yo!", :status => 403
   end
+  
+  # Generic 404 page
+  def render_404
+    render 'public/404.html', :status => 404, :layout => false
+  end
 end

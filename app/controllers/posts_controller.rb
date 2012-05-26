@@ -18,6 +18,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     
+    # Post wasn't completely uploaded (probably exited during crop)
+    if @post.image_file_name.nil?
+      render_404
+      return 
+    end
+    
     @comments = @post.comments
     
     # Add description to comments if it exists

@@ -94,7 +94,13 @@ class UsersController < ApplicationController
   
   # DRY Functions
   def get_user
-    @user = User.where('lower(username) = ?', params[:username].downcase).first
+    @user = User.where('lower(username) = lower(?)', params[:username]).first
+    
+    # User doesn't exist
+    if @user.nil?
+      render_404
+      return
+    end
     
     if params[:username] != @user.username
       if params[:action] == "edit"
