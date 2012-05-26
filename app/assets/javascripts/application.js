@@ -20,3 +20,18 @@ function throwError(error) {
   alert("Error\nCheck console")
   console.log(error)
 }
+
+$(document).ready(function() {
+  /* Put the footer down bottom if the content isn't long enough */
+  var windowHeight = $(window).height()
+  var contentHeight = $("body").height()
+  
+  if(contentHeight < windowHeight)
+  {
+    $("footer").css({
+      bottom: "0",
+      position: "fixed",
+      width: "100%"
+    })
+  }
+})
