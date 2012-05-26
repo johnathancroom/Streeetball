@@ -1,6 +1,6 @@
 <h1 class="crop">Crop your image</h1>
 
-<%= image_tag @post.local_image.url(:regular), :id => 'js-crop' %>
+<%= image_tag @post.local_image.url(:regular), :id => 'js-crop', :width => 400 %>
 
 <%= form_for @post do |f| %>
   <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
