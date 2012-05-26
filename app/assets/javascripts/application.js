@@ -54,4 +54,7 @@ $(document).ready(function() {
   setTimeout(function() {
     adjustFooter()
   }, 100)
+  $(window).resize(function() {
+    adjustFooter()
+  })
 })
