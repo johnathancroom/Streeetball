@@ -16,22 +16,43 @@
 = require posts.js
 */
 
-function throwError(error) {
-  alert("Error\nCheck console")
-  console.log(error)
-}
-
 $(document).ready(function() {
-  /* Put the footer down bottom if the content isn't long enough */
-  var windowHeight = $(window).height()
-  var contentHeight = $("body").height()
-  
-  if(contentHeight < windowHeight)
-  {
-    $("footer").css({
-      bottom: "0",
-      position: "fixed",
-      width: "100%"
-    })
+  /* Error function, yo */
+  function throwError(error) {
+    alert("Error\nCheck console")
+    console.log(error)
   }
+
+  /* Put the footer down bottom if the content isn't long enough */
+  function adjustFooter() {
+    var windowHeight = $(window).height()
+    var contentHeight = $("body").height()
+    
+    var extraHeight;
+    if($("footer").css("position") == "fixed")
+    {
+      extraHeight = $("footer").height() + 35
+    }
+    else
+    {
+      extraHeight = 0
+    }
+    
+    if(contentHeight < windowHeight-extraHeight)
+    {
+      $("footer").css({
+        position: "fixed"
+      })
+    }
+    else
+    {
+      $("footer").css({
+        position: "static"
+      })
+    }
+  }
+  adjustFooter()
+  $(window).resize(function() {
+    adjustFooter()
+  })
 })
