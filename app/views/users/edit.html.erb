@@ -12,16 +12,16 @@
   <% end %>
   
   <%= f.label :bio %>
-  <%= f.text_area :bio %>
+  <%= f.text_area :bio, :placeholder => 'Tell us a little about yourself' %>
   
   <%= f.label :dribbble_username %>
-  <%= f.text_field :dribbble_username %>
+  <%= f.text_field :dribbble_username, :placeholder => 'Johnapple' %>
   
   <%= f.label :twitter_username, 'Twitter handle' %>
-  <%= f.text_field :twitter_username %>
+  <%= f.text_field :twitter_username, :placeholder => '@Johnapple' %>
   
   <%= f.label :location %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, :placeholder => 'Outerspace' %>
   
   <%= f.label :local_avatar, 'New Profile Picture' %>
   <%= f.file_field :local_avatar %>
@@ -29,5 +29,5 @@
   <%= f.label :password, 'New Password' %>
   <%= f.password_field :password %>
 
-  <%= f.submit 'Save', :class => 'submit' %>  
+  <%= f.submit 'Save changes', :class => 'submit' %>  
 <% end %>
