@@ -25,4 +25,4 @@
   
 </div>
 
-<%= render :template => 'posts/index', :locals => { :@posts => @user.posts.where('image_file_name != ""').reverse } %>
+<%= render :template => 'posts/index', :locals => { :@posts => @user.posts.where("image_file_name != ''").reverse } %>
