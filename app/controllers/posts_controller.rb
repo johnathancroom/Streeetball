@@ -96,14 +96,15 @@ class PostsController < ApplicationController
     
     # Check if not logged in
     if !logged_in
-      flash[:alert] = 'You must sign in if you want to like that'
-      render :json => { :redirect => signin_path }
+      flash[:alert] = 'You must sign in if you want to like this'
+      render :json => { :reload => true }
       return
     end
     
     # Check if this is your post
     if @post.user.id == current_user.id
-      render :json => {}
+      flash[:alert] = 'You can\'t like your own post'
+      render :json => { :reload => true }
       return
     end
     

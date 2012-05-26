@@ -7,14 +7,11 @@ likeButton.on("click", function(e) {
     type: "POST",
     dataType: "json",
     success: function(data, status, xhr) {
-      if($.isEmptyObject(data)) // Returns empty if this is your post
-      {
-        return
-      }
+      console.log(data);
       
-      if(data.redirect) // Not logged in
+      if(data.reload) // Error message
       {
-        window.location = data.redirect // redirect to login page
+        window.location.reload()
       }
       else // Logged in
       {

@@ -16,13 +16,13 @@
 = require posts.js
 */
 
-$(document).ready(function() {
-  /* Error function, yo */
-  function throwError(error) {
-    alert("Error\nCheck console")
-    console.log(error)
-  }
+/* Error function, yo */
+function throwError(error) {
+  alert("Error\nCheck console")
+  console.log(error)
+}
 
+$(document).ready(function() {
   /* Put the footer down bottom if the content isn't long enough */
   function adjustFooter() {
     var windowHeight = $(window).height()
