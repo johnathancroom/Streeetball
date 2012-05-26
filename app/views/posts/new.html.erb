@@ -15,11 +15,16 @@
     </div>
   <% end %>
 
-    <%= f.text_field :name, :placeholder => 'Name' %>
-    <%= f.text_area :description, :placeholder => 'Description (not required)' %>
-    
-    <%= f.label :local_image, 'Image' %>
+  <%= f.text_field :name, :placeholder => 'Title (e.g. Kittens)' %>
+  <%= f.text_area :description, :placeholder => 'Description (e.g. Fluffy had kittens this weekend so I decided to vectorize them)' %>
+  
+  <div class="upload">
     <%= f.file_field :local_image %>
-
-    <%= f.submit 'Submit', :class => 'submit' %>
+    <ul class="fineprint">
+      <li>Recommended image dimensions is 400&times;300</li>
+      <li>One image can be posted every 24 hours</li>
+    </ul>
+  </div>
+  
+  <%= f.submit 'Next step', :class => 'submit' %>
 <% end %>

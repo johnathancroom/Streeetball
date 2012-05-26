@@ -49,7 +49,8 @@ h1 {
   margin-bottom: 14px;
 }
 h1,
-form {
+form,
+.jcrop-holder {
   max-width: 320px;
   margin: 0 auto;
 }
@@ -381,6 +382,29 @@ input[type=password] {
   margin-top: 10px;
   text-shadow: none;
 }
+.upload {
+  margin: 16px 0px;
+}
+.upload label {
+  color: #656565;
+}
+.upload input {
+  color: #656565;
+}
+.upload .fineprint {
+  color: #999;
+  font-size: 13px;
+  line-height: 20px;
+  list-style: disc;
+  margin: 14px 0 14px 20px;
+  text-shadow: none;
+}
+.upload .submit {
+  padding: 6px 10px 8px 10px;
+}
+.jcrop-holder {
+  margin-top: 20px;
+}
 .post {
   background: #fafafa;
   border-radius: 3px;
@@ -478,7 +502,8 @@ input[type=password] {
 .single .comment a.user:hover {
   text-decoration: underline;
 }
-.single .comment .blurb {
+.single .comment .blurb,
+#post_description {
   color: #666;
   line-height: 18px;
   margin-top: 6px;
@@ -498,7 +523,7 @@ input[type=password] {
 .single .new-comment textarea {
   color: #7a7a7a;
   font-size: 13px;
-  height: 18px;
+  height: 70px;
   line-height: 18px;
   padding: 12px; 
   margin: 12px 0;
