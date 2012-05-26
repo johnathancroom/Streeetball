@@ -5,14 +5,13 @@
   
   <div class="head">
     <h1><%= @user.username %></h1>
-    <%= link_to @user.location, '#' %>
-    <%#= link_to_dribbble @user, :class => 'social icon-dribbble' %>
+    <%= link_to @user.location, 'javascript:' %>
     <%= link_to_twitter @user, :class => 'social icon-twitter' %>    
     
     <div class="functions">
       <% if current_user && current_user.id == @user.id %>
         <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
-        <%= link_to 'Edit profile', edit_user_path(@user), :class => 'social'%>
+        <%= link_to 'Edit Profile', edit_user_path(@user), :class => 'social icon-' %>
       <% else %>
         <%= link_to_dribbble @user, :class => 'social icon-dribbble' %>
       <% end %>

@@ -331,30 +331,40 @@ input[type=password] {
   color: $textHlight;
   float: left;
   font-size: 20px;
-  margin: 0 6px 0 0;
+  margin: 0 10px 0 0;
   top: -2px;
 }
 .profile .head .functions {
   position: absolute;
   right: 0;
   top: 0;
-  text-transform: lowercase;
 }
 .profile .head .functions a {
-  background: #a1a1a1;
+  background-color: #a1a1a1;
   border-radius: 3px;
   box-shadow:
-  inset 0px 1px 0px 0px rgba(0,0,0, .1),
-  0px 1px 0px 0px rgba(255,255,355, 1);
+    inset 0px 1px 0px 0px rgba(0,0,0, .1),
+    0px 1px 0px 0px rgba(255,255,355, 1);
   color: #fff;
-  letter-spacing: -1px;
-  padding: 4px 6px;
+  font-weight: normal;
+  margin: 0 0 0 5px;
+  padding: 5px 6px 5px 6px;
   text-shadow: 0px 1px 0px rgba(0,0,0, .2);
+
+  &:hover {
+    background-color: darken(@background-color, 16%);
+  }
 }
 .profile .head .functions .icon-dribbble {
-  background: lighten($dribbble, 16%);
-  padding: 4px 6px 5px 6px;
+  background-color: $dribbble;
   text-shadow: 0px 1px 0px rgba(0,0,0, .1);
+  
+  &:hover {
+    background-color: darken(@background-color, 16%);
+  }
+}
+.profile .head .functions .icon-dribbble:before {
+  top: 0;
 }
 .profile p {
   font-size: 13px;
