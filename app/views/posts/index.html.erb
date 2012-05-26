@@ -11,8 +11,6 @@
 
 <div class="posts">
   <% @posts.each_with_index do |post, index| %>
-    <%= raw '-->' if index != 0 %><div class="post">
-      <%= link_to image_tag(post.image.url(:small), :alt => post.name), post %>
-    </div><%= raw '<!--' if index != @posts.count-1 %>
+    <%= raw '-->' if index != 0 %><%= link_to image_tag(post.image.url(:small), :alt => post.name), post, :class => 'post' %><%= raw '<!--' if index != @posts.count-1 %>
   <% end %>
 </div>
