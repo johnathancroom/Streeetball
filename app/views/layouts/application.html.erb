@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Streeetball &mdash; Prospect's Welcome</title>
+  <title>
+    <% if @page_title %>
+      <%= raw "#{@page_title} &middot; Streeetball" %>
+    <% else %>
+      Streeetball
+    <% end %>
+  </title>
   <%= stylesheet_link_tag 'application' %>
   <%= favicon_link_tag 'favicon.png' %>
   <meta charset="utf8">
