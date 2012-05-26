@@ -13,11 +13,17 @@
     </div>
   <% end %>
 
-    <%= f.text_field :name, :placeholder => 'Name' %>
-    <%= f.text_area :description, :placeholder => 'Description' %>
+    <%= f.text_field :name, :placeholder => 'Title (e.g., Kittens)' %>
+    <%= f.text_area :description, :placeholder => 'Description (e.g., Fluffy had kittens this weekend so I decided to vectorize them)' %>
     
-    <%= f.label :local_image %>
-    <%= f.file_field :local_image %>
-
-    <%= f.submit 'Submit', :class => 'submit' %>
+    <div class="upload">
+      <%#= f.label :local_image %>
+      <%= f.file_field :local_image %>
+      <div class="fineprint">
+      *images not 400 x 300 px in size must be cropped <br>
+      *only one image per 24h can be uploaded at a time
+      </div>
+    </div>
+    
+    <%= f.submit 'Next step', :class => 'submit' %>
 <% end %>
