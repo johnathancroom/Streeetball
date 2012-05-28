@@ -145,6 +145,7 @@ textarea {
 .user-functions .primary,
 .user-functions .new,
 .submit {
+  appearance: none;
   background: lighten($btnMain, 10%);
   border-radius: 4px;
   box-shadow:
@@ -298,15 +299,42 @@ input[type=password] {
     width: 17px;
   }
 }
-.about h1 {
-  width: none;
+.about h1,
+.confirm h1 {
+  max-width: none;
   margin: 0 0 12px 0;
 }
-.about p {
+.about p,
+.confirm p {
   color: #707070;
   font-size: 13px;
   line-height: 22px;
   text-shadow: 1px 1px 0px #eee;
+}
+.confirm {
+  background-image: url(mail.png);
+  background-repeat: no-repeat;
+  height: 143px;
+  margin: 70px auto;
+  padding-left: 226px;
+  width: 600px;
+}
+.confirm h1,
+.confirm p {
+  color: #a1a1a1;
+}
+.confirm div {
+  margin: 6px 0;
+}
+.confirm p {
+  padding-left: 176px;
+}
+.confirm h1 span,
+.confirm a {
+  color: $textHlight;
+}
+.confirm a:hover {
+  text-decoration: underline;
 }
 .profile-image {
   border: 4px solid #FFF;

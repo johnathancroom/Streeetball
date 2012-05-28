@@ -1,2 +1,11 @@
-<h1>Confirm your email</h1>
-<p>Go confirm the little guy, he's waiting for you!</p>
+<div class="confirm">
+  <%#= image_tag 'mail.png', :alt => 'mail' %>
+  <h1>
+    Email sent to:
+    <div><span>Karissa.smith716@gmail.com</span>,</div>
+    Confirm the little guy, he's waiting for you!
+  </h1>
+  <p>
+  Didn't recieve one? <%= link_to 'Resend', '#' %> or <%= link_to 'Edit', '#' %>
+  </p>
+</div>
