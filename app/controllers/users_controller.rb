@@ -87,7 +87,7 @@ class UsersController < ApplicationController
   def verify
     @user = User.find(Base64.decode64(params[:id]).to_i)
     @user.update_attribute(:email_confirmed, true)
-    session[:user_id] = @user.id
+    cookies.permanent[:auth_token] = @user.auth_token
     
     redirect_to @user, :notice => "Email confirmed."
   end

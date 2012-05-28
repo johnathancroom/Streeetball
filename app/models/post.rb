@@ -1,7 +1,7 @@
 # Time limit validation
 class TimeLimitValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    @last_post = Post.where('user_id = ?', value).last
+    @last_post = Post.where("user_id = ? AND image_file_name != ''", value).last # Last uploaded image (ignore half-uploads)
     if !@last_post.nil? && @last_post.created_at.to_i > 24.hours.ago.to_i # Length between posts
       record.errors[:created_at] << 'Only one image can be posted every 24 hours.'
     end
@@ -39,7 +39,7 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :name, :user_id
   validates_attachment_presence :local_image, :message => 'Image must be attached'
-  validates :user_id, :time_limit => true # Time limit validation
+  validates :user_id, :time_limit => true, :on => :create # Time limit validation only on create
   
   # Avatar Upload Cropping
   def cropping?
