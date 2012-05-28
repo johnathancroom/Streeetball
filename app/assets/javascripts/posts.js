@@ -33,13 +33,3 @@ likeButton.on("click", function(e) {
     }
   })
 })
-
-// Preview illustrations
-$("#js-player").on("hover", function() {
-  $(".preview .details .player").show();
-  $(".preview .details .prospect").hide();
-})
-$("#js-prospect").on("hover", function() {
-  $(".preview .details .player").hide();
-  $(".preview .details .prospect").show();
-})
