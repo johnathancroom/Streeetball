@@ -29,8 +29,9 @@ h2, h3, h4, h5, h6,
 .single .comment a.user,
 .profile .head h1,
 .profile .head .functions,
-.preview span,
-.new {
+.new,
+strong,
+.player {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -248,61 +249,16 @@ input[type=password] {
     text-decoration: underline;
   }
 }
-.preview {
-  border-bottom: 1px solid #dfdfdf;
-  line-height: 24px;
-  margin:  44px 0px 32px 0px;
-  padding-bottom: 32px;
-}
-.preview .illustration,
-.preview .details {
-  display: inline-block;
-  width: 50%;
-}
-.preview .illustration {
-  padding-right: 8px;
-}
-.preview .illustration img {
-  width: 100%;  
-}
-.preview .details {
-  color: #707070;
-  display: inline-block;
-  font-size: 13px;
-  padding-left: 8px;
-  text-shadow: 1px 1px 0px #eee;
-}
-.preview .ball {
-  top: -3px;
-  margin-right: 2px;
-}
-.preview .catch {
+.catch {
+  border-bottom: 1px solid #e8e8e8;
   color: #656565;
   display: block;
   font-size: 16px;
-  margin-bottom: 0;
+  line-height: 24px;
+  margin:  20px 0px 20px 0px;
+  padding-bottom: 20px;
 }
-.preview .icon-prospect,
-.preview .icon-player {
-  padding-left: 19px;
-  
-  &:before {
-    background-repeat: no-repeat;
-    content: "";
-    height: 17px;
-    left: 0px;
-    position: absolute;
-    top: -2px;
-    width: 17px;
-  }
-}
-.preview .icon-prospect:before {
-  background-image: url("favicon.png");
-}
-.preview .icon-player:before {
-  background-image: url("dribbble-logo.png");
-}
-.preview .learn {
+.catch .learn {
   background: #b1b1b1;
   border: 1px solid #999;
   border-radius: 4px;
@@ -311,12 +267,11 @@ input[type=password] {
     inset 0px -10px 5px 0px rgba(0,0,0, .08),
     0px 1px 0px 0px #888;
   color: #fff;
-  display: block;
-  float: right;
-  margin-top: 14px;
-  padding: 0px 8px;
-  top: 18px;
+  font-size: 13px;
+  margin-left: 10px;
+  padding: 6px 8px;
   text-shadow: 1px 1px 1px #777;
+  white-space: nowrap;
   
   &:hover,
   &:active {
@@ -332,6 +287,20 @@ input[type=password] {
       inset 0px 2px 0px 0px rgba(255,255,255, .1),
       inset 0px 10px 5px 0px rgba(0,0,0, .05),
       0px 1px 0px 0px #777;
+  }
+}
+.catch .player {
+  padding-left: 19px;
+  
+  &:before {
+    background-image: url("dribbble-logo.png");
+    background-repeat: no-repeat;
+    content: "";
+    height: 17px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 17px;
   }
 }
 .profile-image {

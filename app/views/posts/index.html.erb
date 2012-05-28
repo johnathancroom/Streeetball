@@ -1,16 +1,22 @@
 <% if !logged_in && params[:controller] == 'posts' && params[:action] == 'index' %>
+<!--
   <div class="preview">
     <div class="illustration">
       <%= link_to (image_tag 'http://placehold.it/438x150', :alt => 'Illustration'), about_path %>
     </div><!--
   
-    --><div class="details">
+    -!-><div class="details">
       <span class="catch"><%= image_tag 'logo-intro.png', :alt => 'Streeetball', :class =>'ball' %> is giving prospects the opportunity to play.</span>
       Cabbage swede west indian gherkin tinda fat drumstick; garden rocket ocra. <span class="icon-prospect">Prospect</span>
       Greater Plantain common bean pea cauliflower squash; good king henry. <span class="icon-player">Player</span>
       Florence fennel - tinda spinach!
       <%= link_to 'Learn more', about_path, :class => 'learn' %>
     </div>
+  </div>
+-->
+  
+  <div class="catch">
+    Streeetball is giving <span class="player">Prospects</span> the opportunity to show off their work to the world. <%= link_to 'Learn more', about_path, :class => 'learn' %>
   </div>
 <% end %>
 
