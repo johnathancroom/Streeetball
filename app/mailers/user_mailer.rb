@@ -1,4 +1,4 @@
-class ConfirmationMailer < ActionMailer::Base
+class UserMailer < ActionMailer::Base
   default_url_options[:host] = ENV['MAILER_HOST']
   default :from => 'Streeetball <somebody@streeetball.com>'
   
