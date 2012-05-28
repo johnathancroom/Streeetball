@@ -40,25 +40,19 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save
-        UserMailer.welcome_email(@user).deliver
+    if @user.save
+      @user.send_email_confirmation # Send the confirmation
       
-        format.html { redirect_to verify_path }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+      render 'email_confirmations/show' # Show the confirmation page
+    else
+      render :action => 'new'
     end
   end
 
   # PUT /users/1
-  # PUT /users/1.json
   def update
     if @user.update_attributes(params[:user])
       if params[:user][:local_avatar].present?
@@ -81,15 +75,6 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
-  end
-  
-  # GET /verify/{base64 id}
-  def verify
-    @user = User.find(Base64.decode64(params[:id]).to_i)
-    @user.update_attribute(:email_confirmed, true)
-    cookies.permanent[:auth_token] = @user.auth_token
-    
-    redirect_to @user, :notice => "Email confirmed."
   end
   
   # DRY Functions

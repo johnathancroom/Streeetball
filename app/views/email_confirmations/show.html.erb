@@ -1,0 +1,5 @@
+<% @page_title = 'Confirm your email' %>
+
+<h1>Confirm your email</h1>
+<p>Go confirm the little guy, he's waiting for you!</p>
+<p><%= @user.email %></p><%= link_to 'Resend', new_email_confirmation_path(:email => @user.email) %>

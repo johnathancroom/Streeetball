@@ -1,5 +1,7 @@
 Welcome to Streeetball, <%= @user.username %>
 =========================================================
-You have successfully signed up to Streeetball
+In order to begin using your account at Streeetball, please click the link below to verify your email address.
+
+<%= edit_email_confirmation_url(@user.email_confirmation_token) %>
 
 Thanks for joining and have a great day!

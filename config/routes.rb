@@ -1,6 +1,7 @@
 Streeetball::Application.routes.draw do
 
   resources :password_resets
+  resources :email_confirmations
 
   get 'about' => 'pages#about', :as => 'about'
 
@@ -18,9 +19,6 @@ Streeetball::Application.routes.draw do
   
   get 'signup' => 'users#new', :as => 'signup'
   post 'signup' => 'users#create'
-
-  get 'verify/:id' => 'users#verify', :as => 'verify_user'
-  get 'verify' => 'users#confirmation', :as => 'verify'
   
   get ':username' => 'users#show', :as => 'user'
   put ':username' => 'users#update'

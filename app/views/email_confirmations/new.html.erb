@@ -1,0 +1,8 @@
+<% @page_title = 'Resend Email Confirmation' %>
+
+<h1>Resend Email Confirmation</h1>
+
+<%= form_tag email_confirmations_path, :method => :post do %>
+  <%= text_field_tag :email, params[:email], :placeholder => 'Email Address' %>
+  <%= submit_tag 'Resend email confirmation', :class => 'submit' %>
+<% end %>

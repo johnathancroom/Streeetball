@@ -6,7 +6,7 @@
   <body>
     <h1>Welcome to Streeetball, <%= @user.username %></h1>
     <p>
-      You have successfully signed up to Streeetball, <%= link_to 'click here', (verify_user_url (Base64.encode64 @user.id.to_s)) %> to verify your email.
+      In order to begin using your account at Streeetball, <%= link_to 'click here', edit_email_confirmation_url(@user.email_confirmation_token) %> to verify your email address.
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
