@@ -62,6 +62,13 @@ class User < ActiveRecord::Base
     end
   end
   
+  # Reset password
+  def send_password_reset
+    generate_token(:password_reset_token)
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+  
   # Generate auth_token
   def generate_token(column)
     begin

@@ -1,5 +1,7 @@
 Streeetball::Application.routes.draw do
 
+  resources :password_resets
+
   get 'about' => 'pages#about', :as => 'about'
 
   resources :posts, :except => [:index] do

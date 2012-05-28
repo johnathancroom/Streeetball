@@ -4,6 +4,11 @@ class UserMailer < ActionMailer::Base
   
   def welcome_email(user)
     @user = user
-    mail(:to => "#{user.username} <#{user.email}>", :subject => 'Confirm Your Email')
+    mail :to => "#{user.username} <#{user.email}>", :subject => 'Confirm Your Email'
+  end
+  
+  def password_reset(user)
+    @user = user
+    mail :to => "#{user.username} <#{user.email}>", :subject => 'Password Reset'
   end
 end
