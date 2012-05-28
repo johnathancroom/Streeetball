@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>
-    <% if @page_title %>
+    <% if current_page?(root_url) %>
+      Streeetball &middot; A place where all designers are welcome
+    <% elsif @page_title %>
       <%= raw "#{@page_title} &middot; Streeetball" %>
     <% else %>
       Streeetball
