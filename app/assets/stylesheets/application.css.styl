@@ -31,7 +31,8 @@ h2, h3, h4, h5, h6,
 .profile .head .functions,
 .new,
 strong,
-.prospect {
+.prospect,
+.about .tagline {
   font-family: PTSansBold, Arial, Helvetica, Geneva, sans-serif;
   margin-bottom: 10px;
 }
@@ -316,16 +317,37 @@ input[type=password] {
   margin: 40px auto;
   text-align: center;
 }
-.about {
-  text-align: left;
+.about .poem,
+.about .poem div {
+  color: #707070;
+  font-size: 16px;
+}
+.about .poem div {
+  margin: 5px 0;
+  
+  &:nth-of-type(even){
+    margin-bottom: 20px;
+  }
+}
+.about .poem .prospect,
+.about .tagline {
+  color: #636363;
+}
+.about .poem .prospect:before {
+  top: 0px;
 }
 .about h1,
 .error h1 {
   margin-bottom: 10px;
   max-width: none;
 }
-.about p {
+.about p, {
   margin-bottom: 20px;
+  text-align: center;
+}
+.about .tagline {
+  font-size: 17px;
+  text-align: center;
 }
 .about .credits {
   border-top: 1px solid #e8e8e8;
@@ -346,6 +368,9 @@ input[type=password] {
   font-size: 15px;
   margin: 0px 0 20px 0;
 }
+.about .credits p a:hover {
+  color: darken($textHlight, 12%);
+}
 .about .icon-twitter {
   background-color: #dfdfdf;
   border-radius: 100%;
@@ -362,11 +387,6 @@ input[type=password] {
 }
 .about .prospect:before {
   top: -2px;
-}
-.about .tagline {
-  color: #333;
-  font-size: 20px;
-  text-align: center;
 }
 .confirm {
   background-image: url(mail.png);
@@ -444,13 +464,14 @@ input[type=password] {
     inset 0px 1px 0px 0px rgba(0,0,0, .1),
     0px 1px 0px 0px rgba(255,255,355, 1);
   color: #fff;
-  font-weight: normal;
+  font-weight: bold;
   margin: 0 0 0 5px;
-  padding: 5px 6px 5px 6px;
+  padding: 3px 6px 5px 6px;
   text-shadow: 0px 1px 0px rgba(0,0,0, .2);
-
+  text-transform: lowercase;
+  
   &:hover {
-    background-color: darken(@background-color, 16%);
+    background-color: darken(@background-color, 12%);
   }
 }
 .profile .head .functions .icon-dribbble {
@@ -458,7 +479,7 @@ input[type=password] {
   text-shadow: 0px 1px 0px rgba(0,0,0, .1);
   
   &:hover {
-    background-color: darken(@background-color, 16%);
+    background-color: darken(@background-color, 10%);
   }
 }
 .profile .head .functions .icon-dribbble:before {
