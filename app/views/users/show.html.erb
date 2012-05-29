@@ -5,7 +5,7 @@
   
   <div class="head">
     <h1><%= @user.username %></h1>
-    <%= link_to @user.location, 'javascript:' %>
+    <%= link_to @user.location, 'javascript:' if !@user.location.nil? %>
     <%= link_to_twitter @user, :class => 'social icon-twitter' %>    
     
     <div class="functions">
