@@ -299,17 +299,67 @@ input[type=password] {
     width: 17px;
   }
 }
-.about h1,
 .confirm h1 {
   max-width: none;
   margin: 0 0 12px 0;
 }
 .about p,
+.about .credits h1,
 .confirm p {
   color: #707070;
   font-size: 13px;
   line-height: 22px;
   text-shadow: 1px 1px 0px #eee;
+}
+.about,
+.about .credits {
+  margin: 40px auto;
+  text-align: center;
+}
+.about {
+  text-align: left;
+}
+.about h1 {
+  margin-bottom: 10px;
+  max-width: none;
+}
+.about p {
+  margin-bottom: 20px;
+}
+.about .credits {
+  border-top: 1px solid #e8e8e8;
+  margin: 25px 0 50px 0;
+  padding-top: 25px;
+}
+.about .credits h1,
+.about .credits p {
+  color: #999;
+  font-size: 13px;
+}
+.about .credits h1 {
+  font-weight: normal;
+  letter-spacing: 0px;
+}
+.about .credits p {
+  font-size: 15px;
+  margin: 0px 0 20px 0;
+}
+.about p a:hover {
+  color: $textHlight;
+}
+.about .icon-twitter {
+  background-color: #dfdfdf;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+/*   margin-left: 96%; */
+  text-shadow: none;
+  text-decoration: none;
+  
+  &:hover {
+    background-color: #d8d8d8; 
+  }
 }
 .confirm {
   background-image: url(mail.png);
