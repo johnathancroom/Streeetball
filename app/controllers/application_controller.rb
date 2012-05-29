@@ -27,8 +27,17 @@ class ApplicationController < ActionController::Base
     render :text => "Admin only, yo!", :status => 403
   end
   
-  # Generic 404 page
+  # Error handling
+  if ENV['RAILS_ENV'] == 'production' # Production only
+    rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, ActionController::UnknownAction, :with => :render_404
+    rescue_from RuntimeError, :with => :render_500
+  end
+  
   def render_404
-    render 'public/404.html', :status => 404, :layout => false
+    render 'pages/error', :status => :404
+  end
+  
+  def render_500
+    render 'pages/error', :status => 500
   end
 end

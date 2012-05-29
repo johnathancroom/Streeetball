@@ -40,7 +40,7 @@ body {
   text-shadow: 0px 1px 0 #FFF;
 }
 a {
-  color: inherit;
+  color: $textHlight;
   font: inherit;
 }
 h1 {
@@ -88,7 +88,6 @@ textarea {
   padding: 0 20px;
 }
 .user-functions {
-  color: #808080;
   font-size: 13px;
   position: absolute;
   right: 20px;
@@ -97,6 +96,7 @@ textarea {
   top: 0;
 }
 .user-functions .plain {
+  color: #808080;
   top: 7px;
 }
 .user-functions .profile-image {
@@ -319,7 +319,9 @@ input[type=password] {
 .about {
   text-align: left;
 }
-.about h1 {
+.about h1,
+.error h1 {
+  margin-bottom: 10px;
   max-width: none;
 }
 .about p {
@@ -342,9 +344,6 @@ input[type=password] {
 .about .credits p {
   font-size: 15px;
   margin: 0px 0 20px 0;
-}
-.about p a:hover {
-  color: $textHlight;
 }
 .about .icon-twitter {
   background-color: #dfdfdf;
