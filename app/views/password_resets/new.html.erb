@@ -1,8 +1,10 @@
 <% @page_title = 'Reset Password' %>
 
-<h1>Reset Password</h1>
-
-<%= form_tag password_resets_path, :method => :post do %>
-  <%= text_field_tag :email, params[:email], :placeholder => 'Email Address' %>
-  <%= submit_tag 'Reset Password', :class => 'submit' %>
-<% end %>
+<div class="slim">
+  <h1>Reset Password</h1>
+  
+  <%= form_tag password_resets_path, :method => :post do %>
+    <%= text_field_tag :email, params[:email], :placeholder => 'Email Address' %>
+    <%= submit_tag 'Reset Password', :class => 'submit' %>
+  <% end %>
+</div>

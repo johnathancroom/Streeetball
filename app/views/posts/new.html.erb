@@ -1,36 +1,38 @@
 <% @page_title = 'New Post' %>
 
-<h1>New post</h1>
-
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-      
-      <ul>
-        <% @post.errors.keys.each do |field| %>
-          <% @post.errors[field].each do |msg| %>
-            <% if [:local_image, :local_image_file_name, :created_at].include?(field) # Custom error messages %>
-              <%= content_tag :li, msg if ![:local_image_file_name].include?(field) %>
-            <% else %>
-              <%= content_tag :li, field.to_s.capitalize + " " + msg %></li>
+<div class="slim">
+  <h1>New post</h1>
+  
+  <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        
+        <ul>
+          <% @post.errors.keys.each do |field| %>
+            <% @post.errors[field].each do |msg| %>
+              <% if [:local_image, :local_image_file_name, :created_at].include?(field) # Custom error messages %>
+                <%= content_tag :li, msg if ![:local_image_file_name].include?(field) %>
+              <% else %>
+                <%= content_tag :li, field.to_s.capitalize + " " + msg %></li>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <%= f.text_field :name, :placeholder => 'Title (e.g. Kittens)' %>
+    <%= f.text_area :description, :placeholder => 'Description (e.g. Fluffy had kittens this weekend so I decided to vectorize them)' %>
+    
+    <div class="upload">
+      <%= f.file_field :local_image %>
+      <ul class="fineprint">
+        <li>Recommended image dimensions is 400&times;300</li>
+        <li>One image can be posted every 24 hours</li>
       </ul>
     </div>
+    
+    <%= f.submit 'Next step', :class => 'submit' %>
   <% end %>
-
-  <%= f.text_field :name, :placeholder => 'Title (e.g. Kittens)' %>
-  <%= f.text_area :description, :placeholder => 'Description (e.g. Fluffy had kittens this weekend so I decided to vectorize them)' %>
-  
-  <div class="upload">
-    <%= f.file_field :local_image %>
-    <ul class="fineprint">
-      <li>Recommended image dimensions is 400&times;300</li>
-      <li>One image can be posted every 24 hours</li>
-    </ul>
-  </div>
-  
-  <%= f.submit 'Next step', :class => 'submit' %>
-<% end %>
+</div>

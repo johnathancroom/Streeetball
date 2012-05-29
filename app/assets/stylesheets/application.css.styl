@@ -49,15 +49,13 @@ h1 {
   letter-spacing: -1px; //0
   margin-bottom: 14px;
 }
-h1,
-form,
-.jcrop-holder {
+.slim {
   max-width: 320px;
   margin: 0 auto;
 }
-h1.crop,
-.edit_post {
+.crop {
   max-width: 400px;
+  margin: 0 auto;
 }
 label {
   color: #999;
@@ -196,13 +194,14 @@ input[type=file] {
 }
 textarea,
 input[type=text],
-input[type=password]  {
+input[type=password],
+input[type=file] {
   background: rgba(0,0,0,0.02);
   border: 1px solid #FFF;
   box-shadow: inset 0 1px 0 1px #D1D1D1;
   color: #7a7a7a;
   font-size: 13px;
-  margin-top: 16px;
+  margin-bottom: 16px;
   
   &:focus {
     // Needs focus styles
@@ -210,11 +209,11 @@ input[type=password]  {
   }
 }
 input[type=text],
-input[type=password] {
+input[type=password],
+input[type=file] {
   border-radius: 2px;
   display: inline-block;
-  height: 18px;
-  padding: 16px 8px;
+  padding: 9px 8px;
   text-shadow: 0px 1px 0px #eee;
   width: 100%;
   
@@ -314,15 +313,10 @@ input[type=password] {
 .about,
 .about .credits {
   margin: 40px auto;
-  text-align: center;
-}
-.about {
-  text-align: left;
 }
 .about h1,
 .error h1 {
   margin-bottom: 10px;
-  max-width: none;
 }
 .about p {
   margin-bottom: 20px;
@@ -331,6 +325,7 @@ input[type=password] {
   border-top: 1px solid #e8e8e8;
   margin: 25px 0 50px 0;
   padding-top: 25px;
+  text-align: center;
 }
 .about .credits h1,
 .about .credits p {
@@ -371,8 +366,8 @@ input[type=password] {
 .confirm {
   background-image: url(mail.png);
   background-repeat: no-repeat;
-  height: 143px;
   margin: 70px auto;
+  min-height: 143px;
   padding-left: 226px;
   width: 600px;
 }
@@ -479,10 +474,6 @@ input[type=password] {
   margin-top: 10px;
   text-shadow: none;
 }
-.edit_user textarea,
-.edit_user input {
-  margin: 4px 0 18px 0;
-}
 .upload {
   margin: 16px 0px;
 }
@@ -496,10 +487,6 @@ input[type=password] {
   list-style: disc;
   margin: 14px 0 14px 20px;
   text-shadow: none;
-}
-.jcrop-holder {
-  max-width: 400px;
-  margin-top: 20px;
 }
 .post {
   background: #fafafa;
@@ -613,7 +600,7 @@ input[type=password] {
   text-shadow: none;
 }
 .single .new-comment {
-  padding-left: 10px;
+  padding-left: 45px;
   text-align: right;
   width: 100%;
 }

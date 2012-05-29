@@ -3,10 +3,10 @@
 <div class="confirm">
   <h1>
     We sent an email to
-    <div><span><%= @user.email %></span>,</div>
+    <div><span><%= params['email'] %></span>,</div>
     Please check it to confirm your email.
   </h1>
   <p>
-  Didn't recieve an email? <%= link_to 'Resend it', new_email_confirmation_path(:email => @user.email) %>
+  Didn't recieve an email? <%= link_to 'Resend it', new_email_confirmation_path(:email => params['email']) %>
   </p>
 </div>

@@ -1,17 +1,19 @@
-<h1>New Password</h1>
-
-<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="slim">
+  <h1>New Password</h1>
   
-  <%= f.password_field :password, :placeholder => 'New Password' %>
-  <%= f.submit 'Save New Password', :class => 'submit' %>
-<% end %>
+  <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= f.password_field :password, :placeholder => 'New Password' %>
+    <%= f.submit 'Save New Password', :class => 'submit' %>
+  <% end %>
+</div>

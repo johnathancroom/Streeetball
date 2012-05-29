@@ -1,22 +1,24 @@
 <% @page_title = 'Sign up' %>
 
-<h1>Sign up</h1>
-
-<%= form_for @user, :url => signup_path do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="slim">
+  <h1>Sign up</h1>
+  
+  <%= form_for @user, :url => signup_path do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <%= f.text_field :username, :placeholder => 'Username' %>
+    <%= f.text_field :email, :placeholder => 'Email' %>
+    <%= f.password_field :password, :placeholder => 'Password' %>
+    <%= f.submit 'Submit', :class => 'submit' %>
   <% end %>
-
-  <%= f.text_field :username, :placeholder => 'Username' %>
-  <%= f.text_field :email, :placeholder => 'Email' %>
-  <%= f.password_field :password, :placeholder => 'Password' %>
-  <%= f.submit 'Submit', :class => 'submit' %>
-<% end %>
+</div>
