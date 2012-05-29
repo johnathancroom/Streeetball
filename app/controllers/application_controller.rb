@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
   
   def render_404
-    render 'pages/error', :status => :404
+    render 'pages/error', :status => 404
   end
   
   def render_500
