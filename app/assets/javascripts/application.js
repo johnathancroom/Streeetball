@@ -13,7 +13,8 @@
 = require jquery
 = require jquery.color
 = require jquery.Jcrop.min
-= require posts.js
+= require posts
+= require ga
 */
 
 /* Error function, yo */
