@@ -32,7 +32,7 @@ $(document).ready(function() {
     var extraHeight = 0;
     if($("footer").css("position") == "fixed")
     {
-      extraHeight = $("footer").height() + 35
+      extraHeight = $("footer").height() + 60
     }
     else
     {
@@ -51,11 +51,10 @@ $(document).ready(function() {
         position: "static"
       })
     }
+    
+    $("footer").show() // Hidden in CSS by default
   }
   setInterval(function() {
     adjustFooter()
-  }, 100)
-  $(window).resize(function() {
-    adjustFooter()
-  })
+  }, 10)
 })
