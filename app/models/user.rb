@@ -36,8 +36,10 @@ class User < ActiveRecord::Base
   has_many :comments
   
   validates_presence_of :username, :email
-  validates_presence_of :password, :unless => [:update]
+  validates_presence_of :password, :on => :create # Password only required during signup
   validates_uniqueness_of :username, :email, :case_sensitive => false
+  
+  validates :username, :format => { :with => /(\w|-|_)+\z/, :message => 'can only contain letters, numbers, underscores, and dashes' } # Username only alphanumeric + underscores/dashes
   
   # Use username instead of ID
   # http://stackoverflow.com/a/7735324/1136307
