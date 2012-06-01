@@ -1,6 +1,8 @@
 <% @page_title = 'Editing Profile' %>
 
 <%= form_for @user, :html => { :class => 'user_edit slim' } do |f| %>
+  <h1>Edit Profile</h1>
+    
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -20,10 +22,10 @@
   <%= f.text_field :dribbble_username, :placeholder => 'Johnapple' %>
   
   <%= f.label :twitter_username, 'Twitter handle' %>
-  <%= f.text_field :twitter_username, :placeholder => '@Johnapple' %>
+  <%= f.text_field :twitter_username, :placeholder => 'Johnapple' %>
   
   <%= f.label :location %>
-  <%= f.text_field :location, :placeholder => 'Outerspace' %>
+  <%= f.text_field :location, :placeholder => 'Orlando, FL' %>
   
   <%= f.label :local_avatar, 'New Profile Picture' %>
   <%= f.file_field :local_avatar %>
