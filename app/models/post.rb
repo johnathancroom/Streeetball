@@ -12,8 +12,8 @@ class Post < ActiveRecord::Base
   attr_accessible :name, :user_id, :local_image, :image, :description, :crop_x, :crop_y, :crop_w, :crop_h
   
   image_styles = {
-    :regular => ['400x300>'],
-    :small => ['192x144>']
+    :regular => ['400x300#'],
+    :small => ['192x144#']
   }
   has_attached_file :local_image,
     :styles => image_styles,

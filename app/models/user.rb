@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   attr_accessible :password, :username, :email, :email_confirmed, :bio, :local_avatar, :dribbble_username, :twitter_username, :location, :crop_x, :crop_y, :crop_w, :crop_h
   
   avatar_styles = {
-    :large => ['384x384>'],
-    :small => ['100x100>']
+    :large => ['384x384#'],
+    :small => ['100x100#']
   }
   has_attached_file :local_avatar,
     :styles => avatar_styles,
