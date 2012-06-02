@@ -1,9 +1,8 @@
-.field_with_errors {
-/*   background: #ffd8d8; */
-  box-shadow: inset 0px 1px 8px 1px #ff5959;
-/*   border: 1px solid #ff5959; */
-/*   padding: 2px; */
-/*   display: table; */
+.field_with_errors input[type="text"],
+.field_with_errors input[type="password"],
+.field_with_errors input[type="file"],
+.field_with_errors input:hover {
+  box-shadow: 0px 0px 3px 1px #ff5959;
 }
 #error_explanation ul {
   margin-left: 16px;
@@ -12,18 +11,18 @@
 #error_explanation ul li {
   color: #ff5959;
   font-size: 13px;
+  line-height: 16px;
   padding-bottom: 10px;
   text-shadow: none;
 }
 #error_explanation h2 {
-  color: #808080;
+  color: #ff5959;
   font-size: 13px;
   text-shadow: none;
 }
 #error_explanation ul li {
   list-style: disc;
 }
-
 [class^="flash_"], [class*=" flash_"] {
   border: 2px solid #f00;
   border-radius: 3px;
