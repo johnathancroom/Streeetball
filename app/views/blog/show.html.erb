@@ -1,0 +1,9 @@
+<div class="blog">
+  <div class="blog-post">
+    <h1>
+      <%= @post[:title] %>
+      <%= time_tag @post[:date] %>
+    </h1>
+    <%= raw @post[:content] %>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 Streeetball::Application.routes.draw do
 
+  resources :blog
+
   resources :password_resets
   resources :email_confirmations
 

@@ -1,0 +1,12 @@
+<div class="blog">  
+  <% @posts.each do |post| %>
+    <%#= post %>
+    <div class="blog-post">
+      <h1>
+        <%= link_to post[:title], blog_path(post[:path]) %>
+        <%= time_tag post[:date] %>
+      </h1>
+      <%= raw post[:content] %>
+    </div>
+  <% end %>
+</div>
