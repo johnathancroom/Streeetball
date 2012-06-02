@@ -6,13 +6,14 @@
   <%= form_for(@post) do |f| %>
     <% if @post.errors.any? %>
       <div id="error_explanation">
+        <% @post.errors.delete(:local_image_file_name) # Remove duplicate of :local_image %>
         <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
         
         <ul>
           <% @post.errors.keys.each do |field| %>
             <% @post.errors[field].each do |msg| %>
-              <% if [:local_image, :local_image_file_name, :created_at].include?(field) # Custom error messages %>
-                <%= content_tag :li, msg if ![:local_image_file_name].include?(field) %>
+              <% if [:local_image, :created_at].include?(field) # Custom error messages %>
+                <%= content_tag :li, msg %>
               <% else %>
                 <%= content_tag :li, field.to_s.capitalize + " " + msg %></li>
               <% end %>
