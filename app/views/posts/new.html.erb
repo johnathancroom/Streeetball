@@ -7,7 +7,7 @@
     <% if @post.errors.any? %>
       <div id="error_explanation">
         <% @post.errors.delete(:local_image_file_name) # Remove duplicate of :local_image %>
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <h2><%= pluralize(@post.errors.count, "error") %> must be fixed before continuing:</h2>
         
         <ul>
           <% @post.errors.keys.each do |field| %>
