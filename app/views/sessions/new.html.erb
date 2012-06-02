@@ -4,6 +4,7 @@
   <h1>Sign in</h1>
   
   <%= form_tag signin_path do %>
+    <%= hidden_field_tag :referrer, request.referrer if request.referrer != request.url %><%# Send referrer if it's not self %>
     <%= text_field_tag :user, params[:user], :placeholder => 'Username or Email' %>
     <%= password_field_tag :password, '', :placeholder => 'Password' %>
     <%= submit_tag 'Submit', :class => 'submit' %>
