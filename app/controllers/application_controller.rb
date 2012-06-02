@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   
   # Error handling
   if ENV['RAILS_ENV'] == 'production' # Production only
-    rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError, ActionController::UnknownController, ActionController::UnknownAction, :with => :render_404
+    rescue_from ActiveRecord::RecordNotFound, ActionController::UnknownController, ActionController::UnknownAction, :with => :render_404
     rescue_from RuntimeError, :with => :render_500
   end
   

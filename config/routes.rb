@@ -29,6 +29,8 @@ Streeetball::Application.routes.draw do
   resources :users
 
   root :to => 'posts#index'
+  
+  match '*not_found', :to => 'pages#error' if ENV['RAILS_ENV'] == 'production' # Catch routing errors during production
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
