@@ -1,6 +1,5 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-22645449-11']);
-_gaq.push(['_setDomainName', '<%= ENV['MAILER_HOST'] %>']);
 _gaq.push(['_trackPageview']);
 
 (function() {
