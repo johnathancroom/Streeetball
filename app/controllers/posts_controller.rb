@@ -62,6 +62,11 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
+      # Add description to comments for preview if it exists
+      @description_comment = Comment.new({ :user_id => @post.user.id, :blurb => @post.description })
+      @description_comment.created_at = @post.created_at
+      @comments = [@description_comment] if @post.description != ''
+    
       render :action => 'crop', :notice => 'Crop to your desire like a playa'
     else
       render :new

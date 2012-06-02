@@ -1,34 +1,75 @@
 <div class="crop">
-  <h1>Crop your image</h1>
-  
-  <%= image_tag @post.local_image.url(:original), :id => 'js-crop', :width => 400 %>
-  
-  <%= form_for @post do |f| %>
-    <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-      <%= f.hidden_field attribute, :id => attribute %>
+  <div class="cropper">
+    <h1>Crop your image</h1>
+    
+    <%= image_tag @post.local_image.url(:original), :id => 'js-crop', :width => 400 %>
+    
+    <%= form_for @post do |f| %>
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+        <%= f.hidden_field attribute, :id => attribute %>
+      <% end %>
+      
+      <br><%= f.submit 'Crop & publish', :class => 'submit' %>
     <% end %>
     
-    <br><%= f.submit 'Crop & publish', :class => 'submit' %>
-  <% end %>
-  
-  <% content_for (:javascript) do %>
-    <script type="text/javascript">
-    $(function() {
-      $("#js-crop").Jcrop({
-        onChange: update_crop,
-        onSelect: update_crop,
-        setSelect: [0, 0, 400, 300],
-        aspectRatio: (4/3)
+    <% content_for (:javascript) do %>
+      <script type="text/javascript">
+      $(function() {
+        $("#js-crop").Jcrop({
+          onChange: update_crop,
+          onSelect: update_crop,
+          setSelect: [0, 0, 400, 300],
+          aspectRatio: (4/3)
+        })
+        
+        function update_crop(coords) {
+          update_preview(coords, $(".preview .small img"), 192, 144);
+          update_preview(coords, $(".preview .actual img"), 400, 300);
+          
+          var ratio = <%= @post.image_geometry(:original).width %> / <%= @post.image_geometry(:regular).width %>;
+        
+          $("#crop_x").val(Math.floor(coords.x * ratio));
+          $("#crop_y").val(Math.floor(coords.y * ratio));
+          $("#crop_w").val(Math.floor(coords.w * ratio));
+          $("#crop_h").val(Math.floor(coords.h * ratio));  
+        }
+        
+        function update_preview(coords, element, width, height) {
+          var rx = <%= @post.image_geometry(:regular).width %> * (width/coords.w)
+          var ry = <%= @post.image_geometry(:original).height/@post.image_geometry(:original).width %> * rx
+          element.css({
+            width: Math.round(rx) + "px",
+            height: Math.round(ry) + "px",
+            marginLeft: "-" + Math.round((width/coords.w) * coords.x) + "px",
+            marginTop: "-" + Math.round((height/coords.h) * coords.y) + "px"
+          })
+        }
       })
+      </script>
+    <% end %>
+  </div>
+  
+  <div class="preview">
+    <h1>Preview</h1>
+    <div class="post-style actual">
+      <div>
+        <%= image_tag @post.local_image.url(:original) %>
+      </div>
+    </div>
+    
+    <div class="single">
+      <h1><%= @post.name %></h1>
+  
+      <div class="details">
+        <div class="by">by <%= link_to @post.user.username, '#' %></div>
+        
+        <div class="social">
+          <%= link_to '0', '#', :class => 'icon-heart' %>
+          <%= link_to '0', '#', :class => 'icon-comments' %>
+        </div>
+      </div>
       
-      function update_crop(coords) {
-        var ratio = <%= @post.image_geometry(:original).width %> / <%= @post.image_geometry(:regular).width %>; 
-        $("#crop_x").val(Math.floor(coords.x * ratio));
-        $("#crop_y").val(Math.floor(coords.y * ratio));
-        $("#crop_w").val(Math.floor(coords.w * ratio));
-        $("#crop_h").val(Math.floor(coords.h * ratio));  
-      }
-    })
-    </script>
-  <% end %>
+      <%= render :template => "comments/index" %>
+    </div>
+  </div>
 </div>

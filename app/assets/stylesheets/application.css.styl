@@ -26,7 +26,6 @@ textarea,
 select {
   font-family: PTSansRegular, Arial, Helvetica, Geneva, sans-serif;
 }
-h2, h3, h4, h5, h6,
 .single h1,
 .single .by a,
 .single .comment a.user,
@@ -55,10 +54,6 @@ h1 {
 }
 .slim {
   max-width: 320px;
-  margin: 0 auto;
-}
-.crop {
-  max-width: 400px;
   margin: 0 auto;
 }
 label {
@@ -515,10 +510,13 @@ input[type=file] {
   margin: 14px 0 14px 20px;
   text-shadow: none;
 }
+.post-style,
 .post {
   background: #fafafa;
   border-radius: 3px;
   box-shadow: 0 1px 2px 0 #dfdfdf;
+}
+.post {
   display: inline-block;
   height: 144px + 20px;
   margin: 0 14px 20px 0;
@@ -666,6 +664,43 @@ input[type=file] {
   display: block;
   font-size: 12px;
   margin-top: 4px;
+}
+
+.crop .cropper,
+.crop .preview {
+  display: inline-block;
+}
+.crop .cropper {
+  width: 400px;
+}
+.crop .preview {
+  width: 420px;
+}
+.crop .preview {
+  margin-left: 66px;
+}
+.crop .preview .post-style div {
+  overflow: hidden;
+}
+.crop .preview .post-style {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.crop .preview .post-style.small {
+  height: 144px + 20px;
+  width: 192px + 20px;
+}
+.crop .preview .post-style.actual {
+  height: 300px + 20px;
+  width: 400px + 20px;
+}
+.crop .preview .small div {
+  height: 144px;
+  width: 192px;
+}
+.crop .preview .actual div {
+  height: 300px;
+  width: 400px;
 }
 
 /* Brings back drag and drop because pos: relative messes it up */
