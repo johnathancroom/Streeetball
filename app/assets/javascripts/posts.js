@@ -33,3 +33,12 @@ likeButton.on("click", function(e) {
     }
   })
 })
+
+// Reply button
+$(".comment .reply").on("click", function(e) {
+  e.preventDefault()
+  
+  $(".new-comment #comment_blurb")
+    .focus()
+    .val("@"+$(".user", $(this).parent()).html()+" ")
+})
