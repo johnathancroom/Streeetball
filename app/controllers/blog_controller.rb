@@ -3,7 +3,7 @@ class BlogController < ApplicationController
     @posts = Dir.new('app/views/blog/posts').entries # Get blog files
     @posts.delete_if { |x| x == '.' || x == '..' } # Remove current directory and upper directory
     
-    @posts.reverse.each_with_index do |post, index|
+    @posts.sort.reverse.each_with_index do |post, index|
       @posts[index] = get_post_info(post)
     end
   end
