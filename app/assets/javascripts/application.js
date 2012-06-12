@@ -15,6 +15,7 @@
 = require jquery.Jcrop.min
 = require posts
 = require ga
+= require flow
 */
 
 /* Error function, yo */
