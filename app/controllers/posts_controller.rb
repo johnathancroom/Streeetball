@@ -126,6 +126,8 @@ class PostsController < ApplicationController
     else
       @post.likes.create({ :user_id => current_user.id, :post_id => @post.id })
       status = true
+      
+      HookMailer.like_email(current_user, @post) # Email post owner about the like they just recieved!
     end
     
     render :json => { :like => status, :count => @post.likes.count }

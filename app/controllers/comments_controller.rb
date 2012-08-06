@@ -31,9 +31,12 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_path(@comment.post_id), notice: 'Comment posted.' }
+        format.html do
+          HookMailer.comment_email(current_user, Post.find(@comment.post_id))
+          redirect_to post_path(@comment.post_id), notice: 'Comment posted.' 
+        end
       else
-        format.html { redirect_to post_path(@comment.post_id), alert: 'You can\'t comment with a blank message!' }
+        format.html { redirect_to post_path(@comment.post_id), alert: 'You can not comment with a blank message!' }
       end
     end
   end

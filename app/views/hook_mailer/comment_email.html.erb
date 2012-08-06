@@ -1,0 +1,20 @@
+<%= render :partial => 'head.html' %>
+
+<strong>Hey <%= @owner.username %>,</strong><br>
+You've receieved a comment on your post. Go get involved in the conversation!
+<h1 style="padding-bottom: 10px;">
+  <table style="font-size: 20px;">
+    <tr>
+      <td style="padding-right: 10px;">
+        <%= tag :img, :src => "http://#{ENV['MAILER_HOST']}/assets/ico-speech.png", :width => '32', :height => '32' %>
+      </td>
+      <td>
+        <%= link_to @user.username, user_url(@user), :style => 'color: #0982c1; text-decoration: none;' %> commented on your post <%= link_to @post.name, post_url(@post), :style => 'color: #0982c1; text-decoration: none;' %>
+      </td>
+    </tr>
+  </table>
+</h1>
+
+<%= link_to 'View Your Post', post_url(@post), :style => 'font-size: 14px; color: #FFF; background-color: #0982c1; padding: 10px; text-decoration: none;' %>
+
+<%= render :partial => 'foot.html' %>
